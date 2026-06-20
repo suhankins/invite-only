@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dub6ibsv1qqxm"]
+
+[ext_resource type="Texture2D" uid="uid://bkirbpmtyrwqi" path="res://models/structure/psx-pack/doorway_1_door_handle_2.png" id="1_bt48a"]
+
+[resource]
+resource_name = "door_handle_2"
+cull_mode = 2
+albedo_texture = ExtResource("1_bt48a")
+texture_filter = 2
+metadata/_gltf_primary_texture_coord = 0

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d2xyhrv06u26q"]
+
+[ext_resource type="Texture2D" uid="uid://byf2c8rlvv5h8" path="res://models/structure/psx-pack/wall_1_door_frame_wood_1.png" id="1_w8ooo"]
+
+[resource]
+resource_name = "door_frame_wood_1"
+cull_mode = 2
+albedo_texture = ExtResource("1_w8ooo")
+texture_filter = 2
+metadata/_gltf_primary_texture_coord = 0

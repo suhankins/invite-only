@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bcmppic3410fr"]
+
+[ext_resource type="Texture2D" uid="uid://bj7hfkha8xteq" path="res://models/electronics/psx-pack/tv_mp_1_tvs_mp_1.png" id="1_j1igb"]
+
+[resource]
+resource_name = "tvs_mp_1"
+cull_mode = 2
+albedo_texture = ExtResource("1_j1igb")
+texture_filter = 2
+metadata/_gltf_primary_texture_coord = 0
