@@ -1,10 +1,111 @@
-[gd_scene format=3 uid="uid://dm7lgdxdfcwwe"]
+[gd_scene format=4 uid="uid://dm7lgdxdfcwwe"]
 
 [ext_resource type="Texture2D" uid="uid://cqo2jsnk54vcm" path="res://sprites/gamepad.png" id="1_00tan"]
+[ext_resource type="Texture2D" uid="uid://b86f2n0w7uelp" path="res://skybox/NightSkyHDRI003_1K_TONEMAPPED.jpg" id="1_e124b"]
+[ext_resource type="Shader" uid="uid://ctkj5odvrc3ai" path="res://shaders/vhs/vhs.gdshader" id="2_ctvyo"]
 [ext_resource type="Texture2D" uid="uid://bm4qnmsprjn72" path="res://sprites/joystick.png" id="2_l1v76"]
 [ext_resource type="Script" uid="uid://c4cshpqsi4pim" path="res://scripts/joy_stick.gd" id="3_l1v76"]
+[ext_resource type="PackedScene" uid="uid://ojklfl2v8477" path="res://models/structure/psx-pack/wall_1.glb" id="4_4bh5q"]
+[ext_resource type="Material" uid="uid://b1b46mwmp4lkg" path="res://textures/psx-pack/wood_floor_1.tres" id="5_e124b"]
+[ext_resource type="Texture2D" uid="uid://dfsq1i74p60hk" path="res://models/furniture/poker-table_0.png" id="6_101mb"]
+[ext_resource type="ArrayMesh" uid="uid://1iattoap5x8n" path="res://models/electronics/psx-pack/tv_mp_1_tv_mp_1.res" id="8_101mb"]
+[ext_resource type="PackedScene" uid="uid://fjy3ocliht7d" path="res://scenes/party_title_screen.tscn" id="9_101mb"]
+[ext_resource type="Script" uid="uid://bie0138d0cwa8" path="res://scripts/intro/shaky_cam.gd" id="10_ctvyo"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_101mb"]
+panorama = ExtResource("1_e124b")
+
+[sub_resource type="Sky" id="Sky_gmop7"]
+sky_material = SubResource("PanoramaSkyMaterial_101mb")
+
+[sub_resource type="Environment" id="Environment_hbo4f"]
+background_mode = 2
+sky = SubResource("Sky_gmop7")
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 1.0
+fog_depth_curve = 1.0717735
+fog_depth_begin = 3.0
+fog_depth_end = 15.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qixtg"]
+shader = ExtResource("2_ctvyo")
+shader_parameter/exposure = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/saturation = 0.9
+shader_parameter/enable_pixelate = true
+shader_parameter/pixel_factor = 2.00000007125
+shader_parameter/enable_posterize = true
+shader_parameter/color_levels = 24.0000010925
+shader_parameter/dither_strength = 0.35
+shader_parameter/chrom_aberration = 0.0
+shader_parameter/vignette_strength = 1.0
+shader_parameter/grain_strength = 0.2
+shader_parameter/tint_color = Color(0.95, 1.03, 0.9, 1)
+shader_parameter/tint_strength = 0.15
+shader_parameter/viewport_size_override = Vector2(0, 0)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ctvyo"]
+_surfaces = [{
+"aabb": AABB(-10, -1, -10, 20, 2, 20),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"material": ExtResource("5_e124b"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AAAgwQAAgL8AACBBAAAgwQAAgL8AACDBAAAgwQAAgD8AACDBAAAgQQAAgL8AACDBAAAgwQAAgL8AACDBAAAgwQAAgL8AACBBAAAgwQAAgD8AACDBAAAgwQAAgL8AACDBAAAgQQAAgL8AACDBAAAgwQAAgD8AACDBAAAgwQAAgD8AACBBAAAgwQAAgL8AACBBAAAgwQAAgL8AACBBAAAgwQAAgD8AACBBAAAgQQAAgD8AACBBAAAgQQAAgD8AACBBAAAgwQAAgD8AACBBAAAgwQAAgD8AACDBAAAgwQAAgL8AACBBAAAgQQAAgL8AACBBAAAgQQAAgL8AACDBAAAgQQAAgD8AACBBAAAgQQAAgL8AACBBAAAgwQAAgL8AACBBAAAgQQAAgL8AACDBAAAgQQAAgL8AACBBAAAgQQAAgD8AACBBAAAgQQAAgL8AACDBAAAgQQAAgD8AACDBAAAgwQAAgD8AACDBAAAgwQAAgD8AACDBAAAgQQAAgD8AACDBAAAgQQAAgD8AACBBAAAgQQAAgD8AACBBAAAgQQAAgD8AACDBAAAgQQAAgL8AACDBAAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qixtg"]
+albedo_texture = ExtResource("6_101mb")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nt65e"]
+_surfaces = [{
+"aabb": AABB(-1.0827637, -0.2460289, -0.33642578, 2.1655273, 0.4920578, 0.67285156),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"material": SubResource("StandardMaterial3D_qixtg"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AJiKvwDve74AQKw+AJiKvwDve74AQKy+AJiKvwDvez4AQKy+AJiKPwDve74AQKy+AJiKvwDve74AQKy+AJiKvwDve74AQKw+AJiKvwDvez4AQKy+AJiKvwDve74AQKy+AJiKPwDve74AQKy+AJiKvwDvez4AQKy+AJiKvwDvez4AQKw+AJiKvwDve74AQKw+AJiKvwDve74AQKw+AJiKvwDvez4AQKw+AJiKPwDvez4AQKw+AJiKPwDvez4AQKw+AJiKvwDvez4AQKw+AJiKvwDvez4AQKy+AJiKvwDve74AQKw+AJiKPwDve74AQKw+AJiKPwDve74AQKy+AJiKPwDvez4AQKw+AJiKPwDve74AQKw+AJiKvwDve74AQKw+AJiKPwDve74AQKy+AJiKPwDve74AQKw+AJiKPwDvez4AQKw+AJiKPwDve74AQKy+AJiKPwDvez4AQKy+AJiKvwDvez4AQKy+AJiKvwDvez4AQKy+AJiKPwDvez4AQKy+AJiKPwDvez4AQKw+AJiKPwDvez4AQKw+AJiKPwDvez4AQKy+AJiKPwDve74AQKy+AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_yf5fn"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4v7s"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_yf5fn")
+albedo_texture_force_srgb = true
+
+[sub_resource type="Curve" id="Curve_fto62"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.5019455, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Gameplay" type="Node3D" unique_id=130764812]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1685457892]
+transform = Transform3D(-0.8660253, -0.43301272, 0.25000012, 0.28138712, -0.008775085, 0.95955426, -0.4133055, 0.9013451, 0.1294437, 0, 4, 0)
+light_color = Color(0.5686275, 0.5764706, 1, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1803909125]
+environment = SubResource("Environment_hbo4f")
+
+[node name="VHSFilter" type="ColorRect" parent="." unique_id=1740203807]
+texture_filter = 1
+material = SubResource("ShaderMaterial_qixtg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=10052216]
 texture_filter = 1
@@ -13,9 +114,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -150.0
-offset_top = -257.0
-offset_right = 150.0
+offset_left = -223.0
+offset_top = -300.0
+offset_right = 223.0
+offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("1_00tan")
@@ -27,10 +129,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -21.0
-offset_top = 6.5
-offset_right = 19.0
-offset_bottom = 46.5
+offset_left = -22.0
+offset_top = 21.5
+offset_right = 18.0
+offset_bottom = 61.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -42,10 +144,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 18.0
-offset_bottom = -1.0
+offset_left = -29.0
+offset_top = -50.0
+offset_right = 27.0
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -55,3 +157,45 @@ texture = ExtResource("2_l1v76")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("3_l1v76")
+max_distance = 20.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=350971441]
+transform = Transform3D(0.9314779, 0.12821747, -0.34045437, 0.36379787, -0.32829148, 0.8717086, 0, -0.9358339, -0.35244152, -0.022109866, 3.0433943, -6.6756797)
+light_color = Color(1, 1, 0, 1)
+light_energy = 6.56
+shadow_enabled = true
+
+[node name="wall_19" parent="." unique_id=1002785306 instance=ExtResource("4_4bh5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0131536, 9.536743e-07, -7.0146084)
+
+[node name="wall_20" parent="." unique_id=1462917632 instance=ExtResource("4_4bh5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9868464, 9.536743e-07, -7.0146084)
+
+[node name="wall_21" parent="." unique_id=2068827184 instance=ExtResource("4_4bh5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0131536, 9.536743e-07, -7.0146084)
+
+[node name="FloorInside" type="MeshInstance3D" parent="." unique_id=1331493479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013153553, -0.99999905, -11.014608)
+mesh = SubResource("ArrayMesh_ctvyo")
+
+[node name="TVShelf" type="MeshInstance3D" parent="." unique_id=974293823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4193252, 0.23289728, -6.520098)
+mesh = SubResource("ArrayMesh_nt65e")
+
+[node name="TVLight" type="SpotLight3D" parent="." unique_id=691102397]
+transform = Transform3D(1, 0, 0, 0, -0.75301045, 0.6580085, 0, -0.6580085, -0.75301045, 1.3893496, 1.137327, -6.18581)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1374390185]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3893496, 0.40105015, -6.830014)
+mesh = ExtResource("8_101mb")
+surface_material_override/1 = SubResource("StandardMaterial3D_g4v7s")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=530484943]
+transform = Transform3D(0.9999905, -0.00041820473, 0.0043432224, 0.0005568385, 0.9994888, -0.031967577, -0.0043276334, 0.031969693, 0.9994795, 1.389, 0.875, -5.3292885)
+script = ExtResource("10_ctvyo")
+bobbing_curve = SubResource("Curve_fto62")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=940048584]
+size = Vector2i(1152, 648)
+
+[node name="PartyTitleScreen" parent="SubViewport" unique_id=387831392 instance=ExtResource("9_101mb")]

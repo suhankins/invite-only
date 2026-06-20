@@ -1,0 +1,195 @@
+[gd_scene format=3 uid="uid://fjy3ocliht7d"]
+
+[ext_resource type="Texture2D" uid="uid://ddh6obkh62b3x" path="res://sprites/party/title_screen_background.png" id="1_0b4tn"]
+[ext_resource type="Script" uid="uid://xmasi17rkk4c" path="res://scripts/party/party_title_screen.gd" id="1_85b2b"]
+[ext_resource type="Texture2D" uid="uid://d0nua3e7b7glm" path="res://sprites/party/hibi.png" id="2_6bt4s"]
+[ext_resource type="Texture2D" uid="uid://c2lf8wckv8uas" path="res://sprites/party/baguette.png" id="3_ylgo5"]
+[ext_resource type="Texture2D" uid="uid://bnim5b0sgncgw" path="res://sprites/party/gerald.png" id="4_85b2b"]
+[ext_resource type="Texture2D" uid="uid://duhvag87qvgya" path="res://sprites/party/logo.png" id="5_7x2t7"]
+[ext_resource type="AudioStream" uid="uid://brghwfajoriec" path="res://sound/party/jingle.wav" id="6_ylgo5"]
+[ext_resource type="AudioStream" uid="uid://dpt3yfd4gkg0s" path="res://sound/party/super-hib-party.mp3" id="7_85b2b"]
+
+[sub_resource type="Animation" id="Animation_7x2t7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hibi:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(447, 696)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Baguette:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(136, 662)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Gerald:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(725, 680)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Logo:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(240, -283)]
+}
+
+[sub_resource type="Animation" id="Animation_xjl2x"]
+resource_name = "title_screen_animation"
+length = 10.633333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hibi:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(434, -206), Vector2(451, 367)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_ylgo5")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.7599999,
+"stream": ExtResource("7_85b2b")
+}],
+"times": PackedFloat32Array(0, 5.1)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Baguette:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.31, 2.61),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-347, 168), Vector2(181, 305)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Gerald:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.64, 3.96),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1314, 275), Vector2(735, 335)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Logo:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.93, 4.5333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(240, -283), Vector2(240, 48)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ies8j"]
+_data = {
+&"RESET": SubResource("Animation_7x2t7"),
+&"title_screen_animation": SubResource("Animation_xjl2x")
+}
+
+[node name="PartyTitleScreen" type="Control" unique_id=387831392]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_85b2b")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1052665461]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0b4tn")
+expand_mode = 1
+
+[node name="Hibi" type="TextureRect" parent="." unique_id=956182699]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 696.0
+offset_right = 664.0001
+offset_bottom = 866.0001
+texture = ExtResource("2_6bt4s")
+
+[node name="Baguette" type="TextureRect" parent="." unique_id=1032563149]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 662.0
+offset_right = 352.99994
+offset_bottom = 905.0001
+texture = ExtResource("3_ylgo5")
+
+[node name="Gerald" type="TextureRect" parent="." unique_id=67459272]
+layout_mode = 0
+offset_left = 725.0
+offset_top = 680.0
+offset_right = 1028.0009
+offset_bottom = 850.0
+texture = ExtResource("4_85b2b")
+
+[node name="Logo" type="TextureRect" parent="." unique_id=597934674]
+texture_filter = 1
+layout_mode = 0
+offset_left = 240.0
+offset_top = -283.0
+offset_right = 886.0
+offset_bottom = -35.0
+texture = ExtResource("5_7x2t7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=129540884]
+libraries/ = SubResource("AnimationLibrary_ies8j")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2089732221]
