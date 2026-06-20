@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dmrubggt3f35x"]
+
+[ext_resource type="PackedScene" uid="uid://dy8ntmgt0nt8n" path="res://models/structure/psx-pack/doorway_1.glb" id="1_vq6c2"]
+[ext_resource type="Script" uid="uid://26h80nmwyl87" path="res://scripts/openable_door.gd" id="2_ijkxx"]
+[ext_resource type="AudioStream" uid="uid://whuj3btouevs" path="res://sound/door_open.wav" id="3_uns68"]
+
+[node name="OpenableDoor" unique_id=872775396 instance=ExtResource("1_vq6c2")]
+script = ExtResource("2_ijkxx")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="1" unique_id=807761678]
+stream = ExtResource("3_uns68")

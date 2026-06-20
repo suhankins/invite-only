@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dm7lgdxdfcwwe"]
+
+[ext_resource type="Texture2D" uid="uid://cqo2jsnk54vcm" path="res://sprites/gamepad.png" id="1_00tan"]
+[ext_resource type="Texture2D" uid="uid://bm4qnmsprjn72" path="res://sprites/joystick.png" id="2_l1v76"]
+[ext_resource type="Script" uid="uid://c4cshpqsi4pim" path="res://scripts/joy_stick.gd" id="3_l1v76"]
+
+[node name="Gameplay" type="Node3D" unique_id=130764812]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=10052216]
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -257.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_00tan")
+
+[node name="Control" type="Control" parent="TextureRect" unique_id=1628695519]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = 6.5
+offset_right = 19.0
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="JoyStick" type="TextureRect" parent="TextureRect/Control" unique_id=216192146]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 18.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+offset_transform_enabled = true
+mouse_default_cursor_shape = 6
+texture = ExtResource("2_l1v76")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_l1v76")

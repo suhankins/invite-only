@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://vxerdruc7sx7"]
+
+[ext_resource type="Texture2D" uid="uid://c3hhk1lwto4b0" path="res://models/furniture/cash-pile_1.png" id="1_b666l"]
+
+[resource]
+resource_name = "material_1"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_b666l")
+texture_filter = 0
+texture_repeat = false
+metadata/_gltf_primary_texture_coord = 0
