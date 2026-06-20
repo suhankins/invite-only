@@ -2,7 +2,7 @@ extends Camera3D
 
 @export var bobbing_curve: Curve
 @export var bobbing_cycle: float = 4.0
-@export var bobbing_amplitude: float = 0.0005
+@export var bobbing_amplitude: float = 0.00005
 var bobbing_timer: float = 0.0
 
 func _process(delta: float) -> void:
