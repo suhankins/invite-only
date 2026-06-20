@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://br2x7l8jikyq7"]
+[gd_scene format=4 uid="uid://br2x7l8jikyq7"]
 
 [ext_resource type="Texture2D" uid="uid://b86f2n0w7uelp" path="res://skybox/NightSkyHDRI003_1K_TONEMAPPED.jpg" id="1_efegh"]
 [ext_resource type="Material" uid="uid://b2sl288phli5k" path="res://textures/Gravel043.tres" id="2_71e68"]
@@ -6,37 +6,36 @@
 [ext_resource type="PackedScene" uid="uid://btlsp8d05cgy2" path="res://models/structure/psx-pack/window_1_single.glb" id="4_udagl"]
 [ext_resource type="PackedScene" uid="uid://dtqvy125jyucw" path="res://models/structure/psx-pack/window_metal_bars_single.glb" id="5_sc5d5"]
 [ext_resource type="PackedScene" uid="uid://ojklfl2v8477" path="res://models/structure/psx-pack/wall_1.glb" id="7_fto62"]
-[ext_resource type="PackedScene" uid="uid://bkqua2v7uds5p" path="res://models/furniture/sofa_1_3.glb" id="8_42yju"]
+[ext_resource type="PackedScene" uid="uid://bkqua2v7uds5p" path="res://models/furniture/psx-pack/sofa_1_3.glb" id="8_42yju"]
 [ext_resource type="Material" uid="uid://b1b46mwmp4lkg" path="res://textures/psx-pack/wood_floor_1.tres" id="8_ltik1"]
 [ext_resource type="PackedScene" uid="uid://bdl44h7pypfak" path="res://models/structure/psx-pack/lamp_1_on.glb" id="9_ijal1"]
-[ext_resource type="Texture2D" uid="uid://dfsq1i74p60hk" path="res://models/furniture/poker-table_0.png" id="9_ougdd"]
 [ext_resource type="Texture2D" uid="uid://xduee31ndb65" path="res://sprites/urban_trash.png" id="10_piqid"]
-[ext_resource type="PackedScene" uid="uid://yjkqic4hf3gd" path="res://models/furniture/cardboard_box_2_1.glb" id="11_ighgh"]
+[ext_resource type="PackedScene" uid="uid://yjkqic4hf3gd" path="res://models/furniture/psx-pack/cardboard_box_2_1.glb" id="11_ighgh"]
 [ext_resource type="PackedScene" uid="uid://78d6fv4iiyng" path="res://models/structure/psx-pack/pipe_1.glb" id="12_ltik1"]
 [ext_resource type="AudioStream" uid="uid://qjdomfavotus" path="res://music/nightclub.wav" id="13_ighgh"]
 [ext_resource type="Material" uid="uid://dyq6wlrrp1sup" path="res://shaders/vhs/vhs_overlay.tres" id="14_7ghl5"]
 [ext_resource type="Texture2D" uid="uid://declblpkj1sgy" path="res://sprites/bouncer.png" id="15_71e68"]
-[ext_resource type="Script" uid="uid://bie0138d0cwa8" path="res://scripts/shaky_cam.gd" id="15_sc5d5"]
-[ext_resource type="Script" uid="uid://cm30ad5fxkh1f" path="res://scripts/move_to_area.gd" id="16_tin4v"]
+[ext_resource type="Script" uid="uid://bie0138d0cwa8" path="res://scripts/intro/shaky_cam.gd" id="15_sc5d5"]
+[ext_resource type="Script" uid="uid://cm30ad5fxkh1f" path="res://scripts/intro/move_to_area.gd" id="16_tin4v"]
 [ext_resource type="FontFile" uid="uid://csfb1k7tw6nyq" path="res://fonts/CrimsonPro-Regular.ttf" id="16_udagl"]
-[ext_resource type="Script" uid="uid://b4baoixwqdj8m" path="res://scripts/bouncer.gd" id="17_fto62"]
+[ext_resource type="Script" uid="uid://b4baoixwqdj8m" path="res://scripts/intro/bouncer.gd" id="17_fto62"]
 [ext_resource type="Texture2D" uid="uid://jwge8wvw4j1n" path="res://sprites/wallet_ticket.png" id="19_42yju"]
-[ext_resource type="Script" uid="uid://bkahide30v3xd" path="res://scripts/intro_door.gd" id="20_42yju"]
-[ext_resource type="Script" uid="uid://cer8j2lsicedv" path="res://scripts/wallet_money.gd" id="20_piqid"]
+[ext_resource type="Script" uid="uid://bkahide30v3xd" path="res://scripts/intro/intro_door.gd" id="20_42yju"]
+[ext_resource type="Script" uid="uid://cer8j2lsicedv" path="res://scripts/intro/wallet_money.gd" id="20_piqid"]
 [ext_resource type="Texture2D" uid="uid://cqesn50bd676o" path="res://sprites/hand_ticket.png" id="21_ighgh"]
-[ext_resource type="Script" uid="uid://beodhpt1xg1fu" path="res://scripts/ticket_button.gd" id="21_ltik1"]
+[ext_resource type="Script" uid="uid://beodhpt1xg1fu" path="res://scripts/intro/ticket_button.gd" id="21_ltik1"]
 [ext_resource type="PackedScene" uid="uid://dmrubggt3f35x" path="res://objects/openable_door.tscn" id="25_ougdd"]
 [ext_resource type="PackedScene" uid="uid://cf8hnpsywiwin" path="res://models/furniture/poker-table.glb" id="26_7ghl5"]
-[ext_resource type="PackedScene" uid="uid://bwelv4linrafi" path="res://models/furniture/chair_mp_4.glb" id="27_gmop7"]
+[ext_resource type="PackedScene" uid="uid://bwelv4linrafi" path="res://models/furniture/psx-pack/chair_mp_4.glb" id="27_gmop7"]
 [ext_resource type="Texture2D" uid="uid://myaj1k4d0yid" path="res://sprites/poker-player-1.png" id="28_xvki2"]
 [ext_resource type="Texture2D" uid="uid://b5hdt1smqmtmn" path="res://sprites/poker-leader-0.png" id="29_b0ai2"]
 [ext_resource type="Texture2D" uid="uid://fhfaxwi8fgcg" path="res://sprites/poker-player-0.png" id="30_f7tkb"]
 [ext_resource type="PackedScene" uid="uid://u3tc6c27nv28" path="res://models/furniture/cash-pile.glb" id="31_b0ai2"]
-[ext_resource type="Script" uid="uid://6vow31j8237n" path="res://scripts/talker_sprite.gd" id="32_ifd4i"]
+[ext_resource type="Script" uid="uid://6vow31j8237n" path="res://scripts/intro/talker_sprite.gd" id="32_ifd4i"]
 [ext_resource type="PackedScene" uid="uid://bjb8vdw4r0n7x" path="res://models/electronics/boombox.glb" id="33_fqavf"]
 [ext_resource type="Texture2D" uid="uid://cyar6v52368ya" path="res://sprites/card.png" id="34_fqavf"]
-[ext_resource type="Script" uid="uid://cka3chjenjlne" path="res://scripts/sit_down_at_poker_table.gd" id="35_5ueof"]
-[ext_resource type="Script" uid="uid://umjabl5ll82o" path="res://scripts/pair_of_cards.gd" id="36_jxuj2"]
+[ext_resource type="Script" uid="uid://cka3chjenjlne" path="res://scripts/intro/sit_down_at_poker_table.gd" id="35_5ueof"]
+[ext_resource type="Script" uid="uid://umjabl5ll82o" path="res://scripts/intro/pair_of_cards.gd" id="36_jxuj2"]
 [ext_resource type="AudioStream" uid="uid://cuhrpq31g8g32" path="res://sound/card_flip.wav" id="38_ya6sn"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_66gqc"]
@@ -56,8 +55,41 @@ fog_depth_curve = 1.0717735
 fog_depth_begin = 3.0
 fog_depth_end = 15.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifd4i"]
-albedo_texture = ExtResource("9_ougdd")
+[sub_resource type="ArrayMesh" id="ArrayMesh_wrd68"]
+_surfaces = [{
+"aabb": AABB(-10, -1, -10, 20, 2, 20),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"material": ExtResource("2_71e68"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AAAgwQAAgL8AACBBAAAgwQAAgL8AACDBAAAgwQAAgD8AACDBAAAgQQAAgL8AACDBAAAgwQAAgL8AACDBAAAgwQAAgL8AACBBAAAgwQAAgD8AACDBAAAgwQAAgL8AACDBAAAgQQAAgL8AACDBAAAgwQAAgD8AACDBAAAgwQAAgD8AACBBAAAgwQAAgL8AACBBAAAgwQAAgL8AACBBAAAgwQAAgD8AACBBAAAgQQAAgD8AACBBAAAgQQAAgD8AACBBAAAgwQAAgD8AACBBAAAgwQAAgD8AACDBAAAgwQAAgL8AACBBAAAgQQAAgL8AACBBAAAgQQAAgL8AACDBAAAgQQAAgD8AACBBAAAgQQAAgL8AACBBAAAgwQAAgL8AACBBAAAgQQAAgL8AACDBAAAgQQAAgL8AACBBAAAgQQAAgD8AACBBAAAgQQAAgL8AACDBAAAgQQAAgD8AACDBAAAgwQAAgD8AACDBAAAgwQAAgD8AACDBAAAgQQAAgD8AACDBAAAgQQAAgD8AACBBAAAgQQAAgD8AACBBAAAgQQAAgD8AACDBAAAgQQAAgL8AACDBAAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5ueof"]
+_surfaces = [{
+"aabb": AABB(-10, -1, -10, 20, 2, 20),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"material": ExtResource("8_ltik1"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AAAgwQAAgL8AACBBAAAgwQAAgL8AACDBAAAgwQAAgD8AACDBAAAgQQAAgL8AACDBAAAgwQAAgL8AACDBAAAgwQAAgL8AACBBAAAgwQAAgD8AACDBAAAgwQAAgL8AACDBAAAgQQAAgL8AACDBAAAgwQAAgD8AACDBAAAgwQAAgD8AACBBAAAgwQAAgL8AACBBAAAgwQAAgL8AACBBAAAgwQAAgD8AACBBAAAgQQAAgD8AACBBAAAgQQAAgD8AACBBAAAgwQAAgD8AACBBAAAgwQAAgD8AACDBAAAgwQAAgL8AACBBAAAgQQAAgL8AACBBAAAgQQAAgL8AACDBAAAgQQAAgD8AACBBAAAgQQAAgL8AACBBAAAgwQAAgL8AACBBAAAgQQAAgL8AACDBAAAgQQAAgL8AACBBAAAgQQAAgD8AACBBAAAgQQAAgL8AACDBAAAgQQAAgD8AACDBAAAgwQAAgD8AACDBAAAgwQAAgD8AACDBAAAgQQAAgD8AACDBAAAgQQAAgD8AACBBAAAgQQAAgD8AACBBAAAgQQAAgD8AACDBAAAgQQAAgL8AACDBAAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jxuj2"]
+_surfaces = [{
+"aabb": AABB(-0.59228516, -0.49606323, -0.33642578, 1.1845703, 0.99212646, 0.67285156),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"material": ExtResource("8_ltik1"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AKAXvwD8/b4AQKw+AKAXvwD8/b4AQKy+AKAXvwD8/T4AQKy+AKAXPwD8/b4AQKy+AKAXvwD8/b4AQKy+AKAXvwD8/b4AQKw+AKAXvwD8/T4AQKy+AKAXvwD8/b4AQKy+AKAXPwD8/b4AQKy+AKAXvwD8/T4AQKy+AKAXvwD8/T4AQKw+AKAXvwD8/b4AQKw+AKAXvwD8/b4AQKw+AKAXvwD8/T4AQKw+AKAXPwD8/T4AQKw+AKAXPwD8/T4AQKw+AKAXvwD8/T4AQKw+AKAXvwD8/T4AQKy+AKAXvwD8/b4AQKw+AKAXPwD8/b4AQKw+AKAXPwD8/b4AQKy+AKAXPwD8/T4AQKw+AKAXPwD8/b4AQKw+AKAXvwD8/b4AQKw+AKAXPwD8/b4AQKy+AKAXPwD8/b4AQKw+AKAXPwD8/T4AQKw+AKAXPwD8/b4AQKy+AKAXPwD8/T4AQKy+AKAXvwD8/T4AQKy+AKAXvwD8/T4AQKy+AKAXPwD8/T4AQKy+AKAXPwD8/T4AQKw+AKAXPwD8/T4AQKw+AKAXPwD8/T4AQKy+AKAXPwD8/b4AQKy+AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
 transparency = 2
@@ -190,21 +222,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 2)
 [node name="sofa_1_32" parent="Architecture" unique_id=175577562 instance=ExtResource("8_42yju")]
 transform = Transform3D(-0.25881904, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881904, -2.456512, 0, 3.4118767)
 
-[node name="FloorOutside" type="CSGBox3D" parent="Architecture" unique_id=1445176745]
+[node name="FloorOutside" type="MeshInstance3D" parent="Architecture" unique_id=1269043745]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 9)
-size = Vector3(20, 2, 20)
-material = ExtResource("2_71e68")
+mesh = SubResource("ArrayMesh_wrd68")
 
-[node name="FloorInside" type="CSGBox3D" parent="Architecture" unique_id=1163441252]
+[node name="FloorInside" type="MeshInstance3D" parent="Architecture" unique_id=833856239]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013153553, -0.99999905, -11.014608)
-size = Vector3(20, 2, 20)
-material = ExtResource("8_ltik1")
+mesh = SubResource("ArrayMesh_5ueof")
 
-[node name="BoomboxTable" type="CSGBox3D" parent="Architecture" unique_id=414250186]
+[node name="BoomboxTable" type="MeshInstance3D" parent="Architecture" unique_id=2025550150]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8332529, 0.4710083, -6.748007)
-material_override = SubResource("StandardMaterial3D_ifd4i")
-size = Vector3(1.1845703, 0.99212646, 0.67285156)
-material = ExtResource("8_ltik1")
+mesh = SubResource("ArrayMesh_jxuj2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Architecture" unique_id=138454599]
 transform = Transform3D(0.8047191, 0.38264275, 0.45388505, -0.008973904, 0.7723126, -0.6351793, -0.59358793, 0.5070678, 0.6249285, -2.9617727, 0.22352219, -0.6456921)
