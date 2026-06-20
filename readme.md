@@ -2,6 +2,9 @@
 
 Very serious game for The Very Serious Juniper Dev Game Jam.
 
+> [!IMPORTANT]  
+> This repo does not include PSX Mega Pack assets used in the game, because posting them here would be piracy.
+
 ## Credits
 
 Developer
