@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2lf8wckv8uas"
-path.s3tc="res://.godot/imported/baguette.png-0ca20615261b04a7f2e64e6a794c3e4a.s3tc.ctex"
+uid="uid://bs2mvu71ppji8"
+path.s3tc="res://.godot/imported/island_0.png-657ce6054720cda10ad86b9a72e8c4ca.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "80a2ea46bde1c724de7373461837c9f1"
+}
 
 [deps]
 
-source_file="res://sprites/party/baguette.png"
-dest_files=["res://.godot/imported/baguette.png-0ca20615261b04a7f2e64e6a794c3e4a.s3tc.ctex"]
+source_file="res://models/party/island_0.png"
+dest_files=["res://.godot/imported/island_0.png-657ce6054720cda10ad86b9a72e8c4ca.s3tc.ctex"]
 
 [params]
 

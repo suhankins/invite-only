@@ -8,9 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://ojklfl2v8477" path="res://models/structure/psx-pack/wall_1.glb" id="4_4bh5q"]
 [ext_resource type="Material" uid="uid://b1b46mwmp4lkg" path="res://textures/psx-pack/wood_floor_1.tres" id="5_e124b"]
 [ext_resource type="Texture2D" uid="uid://dfsq1i74p60hk" path="res://models/furniture/poker-table_0.png" id="6_101mb"]
-[ext_resource type="ArrayMesh" uid="uid://1iattoap5x8n" path="res://models/electronics/psx-pack/tv_mp_1_tv_mp_1.res" id="8_101mb"]
+[ext_resource type="ArrayMesh" uid="uid://bf2lr2rbi1s4k" path="res://models/electronics/psx-pack/tv_mp_1_tv_mp_1.res" id="8_101mb"]
 [ext_resource type="PackedScene" uid="uid://fjy3ocliht7d" path="res://scenes/party_title_screen.tscn" id="9_101mb"]
 [ext_resource type="Script" uid="uid://bie0138d0cwa8" path="res://scripts/intro/shaky_cam.gd" id="10_ctvyo"]
+[ext_resource type="PackedScene" uid="uid://2obtbanh7g8l" path="res://scenes/seabattle_minigame.tscn" id="11_qixtg"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_101mb"]
 panorama = ExtResource("1_e124b")
@@ -87,6 +88,25 @@ _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.5019455, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cpk8l"]
+sky_top_color = Color(4.428029e-06, 0.6928601, 0.9382763, 1)
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+sky_curve = 0.06529134
+ground_bottom_color = Color(0.5621424, 0.66784835, 0.98857135, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+sun_angle_max = 137.03
+sun_curve = 0.6657418
+
+[sub_resource type="Sky" id="Sky_05jja"]
+sky_material = SubResource("ProceduralSkyMaterial_cpk8l")
+
+[sub_resource type="Environment" id="Environment_vyrga"]
+background_mode = 2
+sky = SubResource("Sky_05jja")
+
+[sub_resource type="World3D" id="World3D_cpk8l"]
+environment = SubResource("Environment_vyrga")
+
 [node name="Gameplay" type="Node3D" unique_id=130764812]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1685457892]
@@ -136,7 +156,7 @@ offset_bottom = 61.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="JoyStick" type="TextureRect" parent="TextureRect/Control" unique_id=216192146]
+[node name="JoyStick" type="TextureRect" parent="TextureRect/Control" unique_id=216192146 groups=["joystick"]]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 7
@@ -196,6 +216,10 @@ script = ExtResource("10_ctvyo")
 bobbing_curve = SubResource("Curve_fto62")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=940048584]
+world_3d = SubResource("World3D_cpk8l")
 size = Vector2i(1152, 648)
 
+[node name="SeabattleMinigame" parent="SubViewport" unique_id=1498805603 instance=ExtResource("11_qixtg")]
+
 [node name="PartyTitleScreen" parent="SubViewport" unique_id=387831392 instance=ExtResource("9_101mb")]
+visible = false

@@ -2,21 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2lf8wckv8uas"
-path.s3tc="res://.godot/imported/baguette.png-0ca20615261b04a7f2e64e6a794c3e4a.s3tc.ctex"
+uid="uid://bwqxl7m8m24yr"
+path="res://.godot/imported/bad_cannon_0.png-d76677ecf05cfa6e4aa1876f9dbd7d19.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
+}
+generator_parameters={
+"md5": "22b4cd2d63752e99ad9ab2635f6eaffb"
 }
 
 [deps]
 
-source_file="res://sprites/party/baguette.png"
-dest_files=["res://.godot/imported/baguette.png-0ca20615261b04a7f2e64e6a794c3e4a.s3tc.ctex"]
+source_file="res://models/party/bad_cannon_0.png"
+dest_files=["res://.godot/imported/bad_cannon_0.png-d76677ecf05cfa6e4aa1876f9dbd7d19.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

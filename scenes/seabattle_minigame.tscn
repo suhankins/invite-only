@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://2obtbanh7g8l"]
+
+[ext_resource type="Shader" uid="uid://fo65h6g0xxod" path="res://shaders/water/water.gdshader" id="1_cpk8l"]
+[ext_resource type="PackedScene" uid="uid://t81rtfoguc6o" path="res://models/party/bad_cannon.gltf" id="2_05jja"]
+[ext_resource type="Script" uid="uid://fbf674wpdtut" path="res://scripts/party/cannon.gd" id="3_05jja"]
+[ext_resource type="PackedScene" uid="uid://c0ig8vxfpclgs" path="res://models/party/island.glb" id="3_vyrga"]
+[ext_resource type="Texture2D" uid="uid://c2lf8wckv8uas" path="res://sprites/party/baguette.png" id="4_upld4"]
+[ext_resource type="Texture2D" uid="uid://bh3osdvgf10yl" path="res://sprites/party/explosion.png" id="4_vyrga"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cpk8l"]
+sky_top_color = Color(4.428029e-06, 0.6928601, 0.9382763, 1)
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+sky_curve = 0.06529134
+ground_bottom_color = Color(0.5621424, 0.66784835, 0.98857135, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+sun_angle_max = 137.03
+sun_curve = 0.6657418
+
+[sub_resource type="Sky" id="Sky_05jja"]
+sky_material = SubResource("ProceduralSkyMaterial_cpk8l")
+
+[sub_resource type="Environment" id="Environment_vyrga"]
+background_mode = 2
+sky = SubResource("Sky_05jja")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xp26j"]
+render_priority = 0
+shader = ExtResource("1_cpk8l")
+shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
+shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
+shader_parameter/FOAM_COL = Color(0.2264897, 0.51512915, 0.9899908, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(500, 500)
+shader_parameter/height = 0.1
+shader_parameter/wave_size = Vector2(2, 2)
+shader_parameter/wave_speed = 1.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+material = SubResource("ShaderMaterial_xp26j")
+size = Vector2(500, 500)
+subdivide_width = 64
+subdivide_depth = 64
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+albedo_color = Color(0.62190723, 0.42623255, 0.104251035, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_yf5fn")
+size = Vector3(19.160156, 1, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_44qmw"]
+material = SubResource("StandardMaterial3D_yf5fn")
+size = Vector3(8.824219, 1.6972046, 0.49902344)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57qmd"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.20392157)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yf5fn"]
+material = SubResource("StandardMaterial3D_57qmd")
+size = Vector2(1, 25)
+center_offset = Vector3(0, 0, 12.5)
+
+[node name="SeabattleMinigame" type="Node3D" unique_id=1498805603]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=838233485]
+environment = SubResource("Environment_vyrga")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=985069081]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Water" type="MeshInstance3D" parent="." unique_id=1141419482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38071552, 0.17950034, -223.83264)
+mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1079686743]
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=482325711]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0791016, 0.3486023, -2.2504883)
+mesh = SubResource("BoxMesh_44qmw")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1277617000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72671, 0.3486023, -2.2504883)
+mesh = SubResource("BoxMesh_44qmw")
+
+[node name="Cannon" parent="." unique_id=87313276 instance=ExtResource("2_05jja")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.44232237, 0.49621582, -1.9247296)
+script = ExtResource("3_05jja")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cannon" unique_id=491280770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.26249564, 0)
+mesh = SubResource("PlaneMesh_yf5fn")
+
+[node name="Sprite3D" type="Sprite3D" parent="Cannon" unique_id=597154482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9604645e-08, 0.611212, 0.742013)
+visible = false
+pixel_size = 0.02
+billboard = 1
+texture_filter = 0
+texture = ExtResource("4_vyrga")
+
+[node name="Island" parent="." unique_id=935230455 instance=ExtResource("3_vyrga")]
+transform = Transform3D(0.9853803, 0, 0.1703689, 0, 1, 0, -0.1703689, 0, 0.9853803, -1.9792777, -1.2589436, -40.743805)
+
+[node name="Island2" parent="." unique_id=1215037272 instance=ExtResource("3_vyrga")]
+transform = Transform3D(0.979753, 0, -0.20021035, 0, 1, 0, 0.20021035, 0, 0.979753, 18.539207, -1.3956985, -72.86543)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1309015856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3320537, 1.0096166, -1.632731)
+pixel_size = 0.005
+billboard = 2
+alpha_cut = 1
+texture = ExtResource("4_upld4")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=516494508]
+transform = Transform3D(0.9999619, -0.0013651311, 0.008619096, 0, 0.98768836, 0.1564345, -0.008726534, -0.15642855, 0.98765075, 0.4497795, 1.7102859, -0.079370975)
