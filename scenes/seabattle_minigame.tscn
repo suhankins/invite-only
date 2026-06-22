@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://befmscucamlc8" path="res://objects/cannon_ball.tscn" id="3_44qmw"]
 [ext_resource type="PackedScene" uid="uid://c0ig8vxfpclgs" path="res://models/party/island.glb" id="3_vyrga"]
 [ext_resource type="Texture2D" uid="uid://c2lf8wckv8uas" path="res://sprites/party/baguette.png" id="4_upld4"]
-[ext_resource type="Texture2D" uid="uid://bh3osdvgf10yl" path="res://sprites/party/explosion.png" id="4_vyrga"]
 [ext_resource type="Script" uid="uid://cgneymoyma7jq" path="res://scripts/debug_only.gd" id="7_df3e0"]
 [ext_resource type="Texture2D" uid="uid://qgfcbwywm532" path="res://sprites/debug/spawner.png" id="7_xp26j"]
 [ext_resource type="Script" uid="uid://jhbwuetrm1ga" path="res://scripts/party/enemy_boat.gd" id="8_df3e0"]
@@ -119,7 +118,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44232237, 0.49621582, -1.92
 script = ExtResource("3_05jja")
 cannonball_scene = ExtResource("3_44qmw")
 cannonball_spawn_point = NodePath("CannonModel/BallSpawnPoint")
-cannonball_miss_target = NodePath("")
+cannonball_miss_target = NodePath("Area/MissTarget")
 fire_area = NodePath("Area/FireArea")
 
 [node name="PlayableCharacter" type="Sprite3D" parent="Cannon" unique_id=1309015856]
@@ -142,7 +141,7 @@ shape = SubResource("BoxShape3D_g4v7s")
 debug_color = Color(0.972549, 0, 0.45490196, 1)
 
 [node name="MissTarget" type="Area3D" parent="Cannon/Area" unique_id=176900357 node_paths=PackedStringArray("explosion_sprite")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25257188, -12.000001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.252572, -12.000001)
 script = ExtResource("8_df3e0")
 speed = 0.0
 sinking_speed = 0.0
@@ -153,14 +152,6 @@ shape = SubResource("BoxShape3D_57qmd")
 
 [node name="CannonModel" parent="Cannon" unique_id=87313276 instance=ExtResource("2_05jja")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-
-[node name="Fire" type="Sprite3D" parent="Cannon/CannonModel" unique_id=597154482]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9604645e-08, 0.611212, 0.742013)
-visible = false
-pixel_size = 0.02
-billboard = 1
-texture_filter = 0
-texture = ExtResource("4_vyrga")
 
 [node name="BallSpawnPoint" type="Node3D" parent="Cannon/CannonModel" unique_id=1334917812]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9604645e-08, 0.6045078, 0.65423036)

@@ -18,13 +18,16 @@ func _fire() -> void:
 	cannonball.global_position = cannonball_spawn_point.global_position
 	var target = _get_ship()
 	cannonball.target = target
-	cannonball.starting_distance = target.global_position.distance_to(global_position)
+	if target is Node3D:
+		cannonball.starting_distance = target.global_position.distance_to(global_position)
+	else:
+		cannonball.starting_distance = target.distance_to(global_position)
 
-func _get_ship() -> Node3D:
+func _get_ship() -> Variant:
 	var areas := fire_area.get_overlapping_areas()
 	var enemy_ship_index: int = areas.find_custom(func(area): return area is EnemyBoat)
 	if enemy_ship_index == -1:
-		return cannonball_miss_target
+		return cannonball_miss_target.global_position
 	return areas[enemy_ship_index]
 
 func _rotate_right() -> void:
