@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://befmscucamlc8"]
+
+[ext_resource type="Script" uid="uid://cftrc6bol1w1t" path="res://scripts/party/cannon_ball.gd" id="1_61lmw"]
+[ext_resource type="Texture2D" uid="uid://cc0b684o5je7j" path="res://sprites/party/cannonball.png" id="2_bamob"]
+
+[sub_resource type="Curve" id="Curve_df3e0"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 0.49504948), 0.0, 27.340427, 0, 0, Vector2(0.4980545, 5), 0.0, 0.0, 0, 0, Vector2(1, 0), -29.903622, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yf5fn"]
+
+[node name="CannonBall" type="Area3D" unique_id=1062905545]
+monitorable = false
+script = ExtResource("1_61lmw")
+speed = 10.0
+starting_distance = 20.0
+arc_height = null
+arc = SubResource("Curve_df3e0")
+
+[node name="CannonBallSprite" type="Sprite3D" parent="." unique_id=373103044]
+pixel_size = 0.005
+billboard = 1
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_bamob")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1172852877]
+shape = SubResource("SphereShape3D_yf5fn")

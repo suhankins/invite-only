@@ -6,10 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://bm4qnmsprjn72" path="res://sprites/joystick.png" id="2_l1v76"]
 [ext_resource type="Script" uid="uid://c4cshpqsi4pim" path="res://scripts/joy_stick.gd" id="3_l1v76"]
 [ext_resource type="PackedScene" uid="uid://ojklfl2v8477" path="res://models/structure/psx-pack/wall_1.glb" id="4_4bh5q"]
+[ext_resource type="Script" uid="uid://k4e2xxpkjyql" path="res://scripts/gamepad.gd" id="4_nt65e"]
 [ext_resource type="Material" uid="uid://b1b46mwmp4lkg" path="res://textures/psx-pack/wood_floor_1.tres" id="5_e124b"]
 [ext_resource type="Texture2D" uid="uid://dfsq1i74p60hk" path="res://models/furniture/poker-table_0.png" id="6_101mb"]
+[ext_resource type="Script" uid="uid://blw7vws4nonks" path="res://scripts/gamepad_button.gd" id="6_nt65e"]
 [ext_resource type="ArrayMesh" uid="uid://bf2lr2rbi1s4k" path="res://models/electronics/psx-pack/tv_mp_1_tv_mp_1.res" id="8_101mb"]
-[ext_resource type="PackedScene" uid="uid://fjy3ocliht7d" path="res://scenes/party_title_screen.tscn" id="9_101mb"]
 [ext_resource type="Script" uid="uid://bie0138d0cwa8" path="res://scripts/intro/shaky_cam.gd" id="10_ctvyo"]
 [ext_resource type="PackedScene" uid="uid://2obtbanh7g8l" path="res://scenes/seabattle_minigame.tscn" id="11_qixtg"]
 
@@ -127,7 +128,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=10052216]
+[node name="Gamepad" type="TextureRect" parent="." unique_id=10052216 node_paths=PackedStringArray("joystick", "a_button", "b_button") groups=["Gamepad"]]
 texture_filter = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -141,8 +142,12 @@ offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("1_00tan")
+script = ExtResource("4_nt65e")
+joystick = NodePath("Control/JoyStick")
+a_button = NodePath("AButton")
+b_button = NodePath("BButton")
 
-[node name="Control" type="Control" parent="TextureRect" unique_id=1628695519]
+[node name="Control" type="Control" parent="Gamepad" unique_id=1628695519]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -156,7 +161,7 @@ offset_bottom = 61.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="JoyStick" type="TextureRect" parent="TextureRect/Control" unique_id=216192146 groups=["joystick"]]
+[node name="JoyStick" type="TextureRect" parent="Gamepad/Control" unique_id=216192146]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 7
@@ -178,6 +183,26 @@ expand_mode = 1
 stretch_mode = 5
 script = ExtResource("3_l1v76")
 max_distance = 20.0
+
+[node name="AButton" type="Button" parent="Gamepad" unique_id=1062432209]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 183.0
+offset_right = 363.0
+offset_bottom = 226.0
+action_mode = 0
+flat = true
+script = ExtResource("6_nt65e")
+
+[node name="BButton" type="Button" parent="Gamepad" unique_id=1922363258]
+layout_mode = 0
+offset_left = 285.0
+offset_top = 151.0
+offset_right = 331.0
+offset_bottom = 194.0
+action_mode = 0
+flat = true
+script = ExtResource("6_nt65e")
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=350971441]
 transform = Transform3D(0.9314779, 0.12821747, -0.34045437, 0.36379787, -0.32829148, 0.8717086, 0, -0.9358339, -0.35244152, -0.022109866, 3.0433943, -6.6756797)
@@ -220,6 +245,3 @@ world_3d = SubResource("World3D_cpk8l")
 size = Vector2i(1152, 648)
 
 [node name="SeabattleMinigame" parent="SubViewport" unique_id=1498805603 instance=ExtResource("11_qixtg")]
-
-[node name="PartyTitleScreen" parent="SubViewport" unique_id=387831392 instance=ExtResource("9_101mb")]
-visible = false

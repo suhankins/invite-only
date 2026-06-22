@@ -1,3 +1,4 @@
+class_name Joystick
 extends TextureRect
 
 @export var max_distance: float = 15.0

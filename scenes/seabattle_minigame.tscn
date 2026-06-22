@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://2obtbanh7g8l"]
 
 [ext_resource type="Shader" uid="uid://fo65h6g0xxod" path="res://shaders/water/water.gdshader" id="1_cpk8l"]
+[ext_resource type="Script" uid="uid://csiybhrp16yh2" path="res://scripts/party/seabattle_minigame.gd" id="1_l5raf"]
 [ext_resource type="PackedScene" uid="uid://t81rtfoguc6o" path="res://models/party/bad_cannon.gltf" id="2_05jja"]
+[ext_resource type="PackedScene" uid="uid://dwagjl1b6jg6u" path="res://objects/enemy_boat.tscn" id="2_rfgc2"]
 [ext_resource type="Script" uid="uid://fbf674wpdtut" path="res://scripts/party/cannon.gd" id="3_05jja"]
+[ext_resource type="PackedScene" uid="uid://befmscucamlc8" path="res://objects/cannon_ball.tscn" id="3_44qmw"]
 [ext_resource type="PackedScene" uid="uid://c0ig8vxfpclgs" path="res://models/party/island.glb" id="3_vyrga"]
 [ext_resource type="Texture2D" uid="uid://c2lf8wckv8uas" path="res://sprites/party/baguette.png" id="4_upld4"]
 [ext_resource type="Texture2D" uid="uid://bh3osdvgf10yl" path="res://sprites/party/explosion.png" id="4_vyrga"]
+[ext_resource type="Script" uid="uid://cgneymoyma7jq" path="res://scripts/debug_only.gd" id="7_df3e0"]
+[ext_resource type="Texture2D" uid="uid://qgfcbwywm532" path="res://sprites/debug/spawner.png" id="7_xp26j"]
+[ext_resource type="Script" uid="uid://jhbwuetrm1ga" path="res://scripts/party/enemy_boat.gd" id="8_df3e0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cpk8l"]
 sky_top_color = Color(4.428029e-06, 0.6928601, 0.9382763, 1)
@@ -52,6 +58,9 @@ size = Vector3(19.160156, 1, 5)
 material = SubResource("StandardMaterial3D_yf5fn")
 size = Vector3(8.824219, 1.6972046, 0.49902344)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+radius = 1.9768347
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57qmd"]
 transparency = 1
 albedo_color = Color(1, 0, 0, 0.20392157)
@@ -59,9 +68,22 @@ albedo_color = Color(1, 0, 0, 0.20392157)
 [sub_resource type="PlaneMesh" id="PlaneMesh_yf5fn"]
 material = SubResource("StandardMaterial3D_57qmd")
 size = Vector2(1, 25)
-center_offset = Vector3(0, 0, 12.5)
+center_offset = Vector3(0, 0, -12.5)
 
-[node name="SeabattleMinigame" type="Node3D" unique_id=1498805603]
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(2.3808594, 4.97937, 32.121826)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_57qmd"]
+
+[node name="SeabattleMinigame" type="Node3D" unique_id=1498805603 node_paths=PackedStringArray("timer", "spawn_points")]
+script = ExtResource("1_l5raf")
+ship_scene = ExtResource("2_rfgc2")
+timer = NodePath("Timer")
+spawn_points = [NodePath("SpawnPoint0"), NodePath("SpawnPoint1"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4")]
+
+[node name="Timer" type="Timer" parent="." unique_id=2101461575]
+wait_time = 5.0
+autostart = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=838233485]
 environment = SubResource("Environment_vyrga")
@@ -85,15 +107,54 @@ mesh = SubResource("BoxMesh_44qmw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72671, 0.3486023, -2.2504883)
 mesh = SubResource("BoxMesh_44qmw")
 
-[node name="Cannon" parent="." unique_id=87313276 instance=ExtResource("2_05jja")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.44232237, 0.49621582, -1.9247296)
-script = ExtResource("3_05jja")
+[node name="EnemyGoal" type="Area3D" parent="." unique_id=355158409 groups=["enemy_goal"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.442, 0, -1.925)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cannon" unique_id=491280770]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyGoal" unique_id=1185819847]
+shape = SubResource("SphereShape3D_g4v7s")
+debug_color = Color(0.9529412, 0, 0.5529412, 1)
+
+[node name="Cannon" type="Node3D" parent="." unique_id=284421916 node_paths=PackedStringArray("cannonball_spawn_point", "cannonball_miss_target", "fire_area")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44232237, 0.49621582, -1.9247296)
+script = ExtResource("3_05jja")
+cannonball_scene = ExtResource("3_44qmw")
+cannonball_spawn_point = NodePath("CannonModel/BallSpawnPoint")
+cannonball_miss_target = NodePath("")
+fire_area = NodePath("Area/FireArea")
+
+[node name="PlayableCharacter" type="Sprite3D" parent="Cannon" unique_id=1309015856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2883817, 0.31552064, 0.63409257)
+pixel_size = 0.003
+billboard = 2
+alpha_cut = 1
+texture = ExtResource("4_upld4")
+
+[node name="Area" type="MeshInstance3D" parent="Cannon" unique_id=491280770]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.26249564, 0)
 mesh = SubResource("PlaneMesh_yf5fn")
 
-[node name="Sprite3D" type="Sprite3D" parent="Cannon" unique_id=597154482]
+[node name="FireArea" type="Area3D" parent="Cannon/Area" unique_id=1423994725]
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cannon/Area/FireArea" unique_id=699289988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9896852, -15.560912)
+shape = SubResource("BoxShape3D_g4v7s")
+debug_color = Color(0.972549, 0, 0.45490196, 1)
+
+[node name="MissTarget" type="Area3D" parent="Cannon/Area" unique_id=176900357 node_paths=PackedStringArray("explosion_sprite")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25257188, -12.000001)
+script = ExtResource("8_df3e0")
+speed = 0.0
+sinking_speed = 0.0
+explosion_sprite = NodePath(".")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cannon/Area/MissTarget" unique_id=872380727]
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="CannonModel" parent="Cannon" unique_id=87313276 instance=ExtResource("2_05jja")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Fire" type="Sprite3D" parent="Cannon/CannonModel" unique_id=597154482]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9604645e-08, 0.611212, 0.742013)
 visible = false
 pixel_size = 0.02
@@ -101,18 +162,57 @@ billboard = 1
 texture_filter = 0
 texture = ExtResource("4_vyrga")
 
-[node name="Island" parent="." unique_id=935230455 instance=ExtResource("3_vyrga")]
-transform = Transform3D(0.9853803, 0, 0.1703689, 0, 1, 0, -0.1703689, 0, 0.9853803, -1.9792777, -1.2589436, -40.743805)
-
-[node name="Island2" parent="." unique_id=1215037272 instance=ExtResource("3_vyrga")]
-transform = Transform3D(0.979753, 0, -0.20021035, 0, 1, 0, 0.20021035, 0, 0.979753, 18.539207, -1.3956985, -72.86543)
-
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1309015856]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3320537, 1.0096166, -1.632731)
-pixel_size = 0.005
-billboard = 2
-alpha_cut = 1
-texture = ExtResource("4_upld4")
+[node name="BallSpawnPoint" type="Node3D" parent="Cannon/CannonModel" unique_id=1334917812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9604645e-08, 0.6045078, 0.65423036)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=516494508]
-transform = Transform3D(0.9999619, -0.0013651311, 0.008619096, 0, 0.98768836, 0.1564345, -0.008726534, -0.15642855, 0.98765075, 0.4497795, 1.7102859, -0.079370975)
+transform = Transform3D(0.9999619, -0.0013651311, 0.008619096, 0, 0.98768836, 0.1564345, -0.008726534, -0.15642855, 0.98765075, 0.4497795, 1.9136562, -0.079370975)
+
+[node name="SpawnPoint0" type="Sprite3D" parent="." unique_id=1022796526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.268812, 0, -20.87592)
+pixel_size = 0.005
+billboard = 1
+no_depth_test = true
+texture = ExtResource("7_xp26j")
+script = ExtResource("7_df3e0")
+
+[node name="SpawnPoint1" type="Sprite3D" parent="." unique_id=884684415]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25)
+pixel_size = 0.005
+billboard = 1
+no_depth_test = true
+texture = ExtResource("7_xp26j")
+script = ExtResource("7_df3e0")
+
+[node name="SpawnPoint2" type="Sprite3D" parent="." unique_id=76429266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.793817, 0, -21.674026)
+pixel_size = 0.005
+billboard = 1
+no_depth_test = true
+texture = ExtResource("7_xp26j")
+script = ExtResource("7_df3e0")
+
+[node name="SpawnPoint3" type="Sprite3D" parent="." unique_id=1569862113]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0211115, 0, -23.94826)
+pixel_size = 0.005
+billboard = 1
+no_depth_test = true
+texture = ExtResource("7_xp26j")
+script = ExtResource("7_df3e0")
+
+[node name="SpawnPoint4" type="Sprite3D" parent="." unique_id=895775125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4235163, 0, -24.308918)
+pixel_size = 0.005
+billboard = 1
+no_depth_test = true
+texture = ExtResource("7_xp26j")
+script = ExtResource("7_df3e0")
+
+[node name="Island0" parent="." unique_id=1158978947 instance=ExtResource("3_vyrga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.430145, -1.1402252, -60.77217)
+
+[node name="Island1" parent="." unique_id=757665166 instance=ExtResource("3_vyrga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5381603, -1.1402252, -90.4601)
+
+[node name="Island2" parent="." unique_id=139351702 instance=ExtResource("3_vyrga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.397453, -1.1402252, -56.431465)

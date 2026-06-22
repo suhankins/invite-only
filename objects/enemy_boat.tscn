@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dwagjl1b6jg6u"]
+
+[ext_resource type="Script" uid="uid://jhbwuetrm1ga" path="res://scripts/party/enemy_boat.gd" id="1_a2etm"]
+[ext_resource type="PackedScene" uid="uid://crogtb51i451e" path="res://models/party/enemy_boat.glb" id="2_1pka6"]
+[ext_resource type="Texture2D" uid="uid://bh3osdvgf10yl" path="res://sprites/party/explosion.png" id="3_kafdu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+size = Vector3(1.8271484, 3.6827393, 3.8623047)
+
+[node name="EnemyBoat" type="Area3D" unique_id=1661461168 node_paths=PackedStringArray("explosion_sprite")]
+script = ExtResource("1_a2etm")
+explosion_sprite = NodePath("Explosion")
+
+[node name="EnemyModel" parent="." unique_id=378258882 instance=ExtResource("2_1pka6")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.4376706, 0, 0.1543045)
+
+[node name="Explosion" type="Sprite3D" parent="." unique_id=2038984222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41577107, 1.5066034, -0.8050442)
+visible = false
+pixel_size = 0.05
+billboard = 1
+texture_filter = 0
+texture = ExtResource("3_kafdu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=274077362]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41357422, 1.3413696, 0.15771484)
+shape = SubResource("BoxShape3D_yf5fn")
+debug_color = Color(0.6674454, 0.50989634, 3.85046e-07, 1)

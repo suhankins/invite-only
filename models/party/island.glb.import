@@ -43,7 +43,7 @@ _subresources={
 "materials": {
 "material_0": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://models/party/material_0.tres",
+"use_external/fallback_path": "res://models/party/island_0.tres",
 "use_external/path": "uid://cd42sfo05gosb"
 }
 }
