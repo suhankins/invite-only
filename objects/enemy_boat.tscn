@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bh3osdvgf10yl" path="res://sprites/party/explosion.png" id="3_kafdu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
-size = Vector3(1.8271484, 3.6827393, 3.8623047)
+size = Vector3(1.8271484, 1.5640259, 3.8623047)
 
 [node name="EnemyBoat" type="Area3D" unique_id=1661461168 node_paths=PackedStringArray("explosion_sprite")]
 script = ExtResource("1_a2etm")
@@ -23,6 +23,6 @@ texture_filter = 0
 texture = ExtResource("3_kafdu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=274077362]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41357422, 1.3413696, 0.15771484)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41357422, 0.28201294, 0.15771484)
 shape = SubResource("BoxShape3D_yf5fn")
 debug_color = Color(0.6674454, 0.50989634, 3.85046e-07, 1)

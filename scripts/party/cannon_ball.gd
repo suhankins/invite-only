@@ -15,6 +15,9 @@ func _on_area_entered(area: Area3D) -> void:
 		queue_free()
 
 func _process(delta: float) -> void:
+	if not is_instance_valid(target) and not target is Vector3:
+		queue_free()
+		return
 	var target_position: Vector3
 	if target is Node3D:
 		target_position = target.global_position
