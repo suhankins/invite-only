@@ -24,6 +24,7 @@ Assets
 * Skybox - AmbientCG
 * Crimson Pro font - The Crimson Pro Project Authors under OFL
 * Buckshot Roulette Style Shader - https://godotshaders.com/shader/buckshot-roulette-style-shader-2/
+* Water shader - https://godotshaders.com/shader/wind-waker-water-no-textures-needed/
 
 
 Fun stories about how some assets were made:
