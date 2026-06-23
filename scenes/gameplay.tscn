@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://blw7vws4nonks" path="res://scripts/gamepad_button.gd" id="6_nt65e"]
 [ext_resource type="ArrayMesh" uid="uid://bf2lr2rbi1s4k" path="res://models/electronics/psx-pack/tv_mp_1_tv_mp_1.res" id="8_101mb"]
 [ext_resource type="Script" uid="uid://bie0138d0cwa8" path="res://scripts/intro/shaky_cam.gd" id="10_ctvyo"]
-[ext_resource type="PackedScene" uid="uid://de7wln44737r" path="res://scenes/rolling_ball_minigame.tscn" id="13_nt65e"]
+[ext_resource type="PackedScene" uid="uid://dvamoegtmtsql" path="res://scenes/flag_pole_minigame.tscn" id="13_nt65e"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_101mb"]
 panorama = ExtResource("1_e124b")
@@ -233,4 +233,4 @@ size = Vector2i(576, 324)
 size_2d_override = Vector2i(1152, 648)
 size_2d_override_stretch = true
 
-[node name="RollingBallMinigame" parent="SubViewport" unique_id=1629191205 instance=ExtResource("13_nt65e")]
+[node name="FlagPoleMinigame" parent="SubViewport" unique_id=1742279698 instance=ExtResource("13_nt65e")]

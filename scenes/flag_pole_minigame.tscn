@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://dvamoegtmtsql"]
+
+[ext_resource type="Texture2D" uid="uid://d2cnrue748wae" path="res://sprites/party/sky.png" id="1_4s8aw"]
+[ext_resource type="Texture2D" uid="uid://c2lf8wckv8uas" path="res://sprites/party/baguette.png" id="1_6gucy"]
+[ext_resource type="Texture2D" uid="uid://b71uk838j0hgl" path="res://sprites/party/moon.png" id="2_sxabt"]
+[ext_resource type="Texture2D" uid="uid://crtwx7cc7qx3l" path="res://sprites/party/finish.png" id="3_hwawf"]
+[ext_resource type="Script" uid="uid://chmdap8bodpdb" path="res://scripts/party/flag.gd" id="4_hwawf"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sxabt"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_hwawf"]
+sky_material = SubResource("ProceduralSkyMaterial_sxabt")
+
+[sub_resource type="Environment" id="Environment_rn42k"]
+background_mode = 2
+sky = SubResource("Sky_hwawf")
+tonemap_mode = 2
+tonemap_exposure = 1.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57qmd"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yf5fn"]
+material = SubResource("StandardMaterial3D_57qmd")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 174.24092
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hwawf"]
+size = Vector3(0.5, 200, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+albedo_color = Color(0, 0.55377686, 0.067252874, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_yf5fn")
+radius = 5.0
+height = 5.0
+is_hemisphere = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rn42k"]
+albedo_texture = ExtResource("2_sxabt")
+
+[sub_resource type="SphereMesh" id="SphereMesh_xxu0p"]
+material = SubResource("StandardMaterial3D_rn42k")
+radius = 6.0
+height = 12.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4v7s"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_6gucy")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_g4v7s")
+subdivide_width = 5
+subdivide_depth = 1
+
+[node name="FlagPoleMinigame" type="Node3D" unique_id=1742279698]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1372114408]
+environment = SubResource("Environment_rn42k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=635972311]
+transform = Transform3D(1, -1.4374822e-07, 9.953599e-08, 0, 0.5692795, 0.82214403, -1.7484555e-07, -0.82214403, 0.5692795, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=587015597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6427636, 5.5037913, 0)
+pixel_size = 0.005
+alpha_cut = 1
+texture = ExtResource("1_6gucy")
+
+[node name="Pole" type="MeshInstance3D" parent="." unique_id=379029163]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027658463, 91.02311, -0.012983322)
+mesh = SubResource("CylinderMesh_yf5fn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=313660535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027658463, 90.50734, -0.012983322)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1831207448]
+shape = SubResource("BoxShape3D_hwawf")
+
+[node name="Earth" type="MeshInstance3D" parent="." unique_id=1681736568]
+mesh = SubResource("SphereMesh_g4v7s")
+
+[node name="Moon" type="MeshInstance3D" parent="." unique_id=2112614827]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 186, 0)
+mesh = SubResource("SphereMesh_xxu0p")
+
+[node name="Sprite3D" type="Sprite3D" parent="Moon" unique_id=1633623817]
+transform = Transform3D(0.7370374, -0.67585194, 0, 0.67585194, 0.7370374, 0, 0, 0, 1, -1.1260877, 6.60524, 0)
+alpha_cut = 1
+texture = ExtResource("3_hwawf")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Moon" unique_id=1063414768]
+transform = Transform3D(0.8660253, 0.1294095, -0.48296303, 0.34391034, 0.5469763, 0.7632448, 0.3629405, -0.82708526, 0.4291901, -2.0000012, 14.181946, 3)
+light_energy = 5.0
+spot_range = 28.471817
+spot_angle = 53.526596
+
+[node name="Flag" type="Node3D" parent="." unique_id=611934388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.4110866, 0)
+script = ExtResource("4_hwawf")
+
+[node name="SoftBody3D" type="SoftBody3D" parent="Flag" unique_id=1429139584]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.9896858, 0, 0)
+mesh = SubResource("PlaneMesh_g4v7s")
+ray_pickable = false
+pinned_points = [14, 7, 0]
+attachments/0/point_index = 14
+attachments/0/spatial_attachment_path = NodePath("..")
+attachments/0/offset = Vector3(0.010314226, 1, 4.371139e-08)
+attachments/1/point_index = 7
+attachments/1/spatial_attachment_path = NodePath("..")
+attachments/1/offset = Vector3(0.010314226, 0, 0)
+attachments/2/point_index = 0
+attachments/2/spatial_attachment_path = NodePath("..")
+attachments/2/offset = Vector3(0.010314226, -1, -4.371139e-08)
+
+[node name="Camera3D" type="Camera3D" parent="Flag" unique_id=743573934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58891344, 7)
+
+[node name="Sky" type="Sprite3D" parent="." unique_id=698299384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 96.64986, -5.5201263)
+pixel_size = 0.1
+texture = ExtResource("1_4s8aw")
