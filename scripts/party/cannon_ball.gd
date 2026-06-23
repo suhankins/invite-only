@@ -26,3 +26,5 @@ func _process(delta: float) -> void:
 	global_position += global_position.direction_to(target_position) * speed * delta
 	global_position.y = target_position.y
 	global_position.y += sin(global_position.distance_to(target_position) / starting_distance * PI) * arc_height
+	if global_position.y < 0.0:
+		queue_free()

@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://1y3vkg73xari" path="res://sprites/party/loser_graphic.png" id="7_6y2ee"]
 [ext_resource type="Script" uid="uid://cgneymoyma7jq" path="res://scripts/debug_only.gd" id="7_df3e0"]
 [ext_resource type="Texture2D" uid="uid://qgfcbwywm532" path="res://sprites/debug/spawner.png" id="7_xp26j"]
-[ext_resource type="Script" uid="uid://jhbwuetrm1ga" path="res://scripts/party/enemy_boat.gd" id="8_df3e0"]
 [ext_resource type="AudioStream" uid="uid://b0uey4qwhf8l8" path="res://sound/party/cannon_fire.wav" id="16_5syd5"]
 [ext_resource type="AudioStream" uid="uid://ddo76eb4hwiei" path="res://sound/party/rotationsound.wav" id="16_qshps"]
 [ext_resource type="Texture2D" uid="uid://cc0b684o5je7j" path="res://sprites/party/cannonball.png" id="19_0hu4x"]
@@ -81,8 +80,6 @@ center_offset = Vector3(0, 0, -12.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(2.3808594, 4.97937, 32.121826)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_l5raf"]
 
 [node name="SeabattleMinigame" type="Node3D" unique_id=1498805603 node_paths=PackedStringArray("fade_screen", "start_graphic", "finish_graphic", "clock_container", "music_player", "spawn_timer", "finish_timer", "spawn_points") groups=["minigame_root"]]
 script = ExtResource("1_l5raf")
@@ -260,16 +257,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9896852, -15.560912)
 shape = SubResource("BoxShape3D_g4v7s")
 debug_color = Color(0.972549, 0, 0.45490196, 1)
 
-[node name="MissTarget" type="Area3D" parent="Cannon/Area/FireArea" unique_id=176900357 node_paths=PackedStringArray("explosion_sprite")]
+[node name="MissTarget" type="Node3D" parent="Cannon/Area/FireArea" unique_id=1926059981]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -12)
-script = ExtResource("8_df3e0")
-speed = 0.0
-sinking_speed = 0.0
-explosion_sprite = NodePath(".")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cannon/Area/FireArea/MissTarget" unique_id=872380727]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17732847, 0)
-shape = SubResource("SphereShape3D_l5raf")
 
 [node name="CannonModel" parent="Cannon" unique_id=87313276 instance=ExtResource("2_05jja")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
