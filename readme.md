@@ -22,9 +22,10 @@ Assets
 * Madcatz Nintendo 64 Controller - https://www.virtualvideogamestore.com/store/p3141/Madcatz_Nintendo_64_Controller.html, Mad Catz logo replaced with BADASS FOXEZ
 * Gravel texture - AmbientCG
 * Skybox - AmbientCG
-* Crimson Pro font - The Crimson Pro Project Authors under OFL
 * Buckshot Roulette Style Shader - https://godotshaders.com/shader/buckshot-roulette-style-shader-2/
 * Water shader - https://godotshaders.com/shader/wind-waker-water-no-textures-needed/
+* Crimson Pro font - The Crimson Pro Project Authors under OFL
+* Cherry Bomb One - The Cherry Bomb Project Authors under OFL
 
 
 Fun stories about how some assets were made:

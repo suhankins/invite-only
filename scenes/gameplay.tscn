@@ -242,6 +242,8 @@ bobbing_curve = SubResource("Curve_fto62")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=940048584]
 world_3d = SubResource("World3D_cpk8l")
-size = Vector2i(1152, 648)
+size = Vector2i(576, 324)
+size_2d_override = Vector2i(1152, 648)
+size_2d_override_stretch = true
 
 [node name="SeabattleMinigame" parent="SubViewport" unique_id=1498805603 instance=ExtResource("11_qixtg")]

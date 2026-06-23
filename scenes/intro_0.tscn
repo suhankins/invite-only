@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://declblpkj1sgy" path="res://sprites/bouncer.png" id="15_71e68"]
 [ext_resource type="Script" uid="uid://bie0138d0cwa8" path="res://scripts/intro/shaky_cam.gd" id="15_sc5d5"]
 [ext_resource type="Script" uid="uid://cm30ad5fxkh1f" path="res://scripts/intro/move_to_area.gd" id="16_tin4v"]
-[ext_resource type="FontFile" uid="uid://csfb1k7tw6nyq" path="res://fonts/CrimsonPro-Regular.ttf" id="16_udagl"]
+[ext_resource type="FontFile" uid="uid://csfb1k7tw6nyq" path="res://fonts/crimsonpro/CrimsonPro-Regular.ttf" id="16_udagl"]
 [ext_resource type="Script" uid="uid://b4baoixwqdj8m" path="res://scripts/intro/bouncer.gd" id="17_fto62"]
 [ext_resource type="Texture2D" uid="uid://jwge8wvw4j1n" path="res://sprites/wallet_ticket.png" id="19_42yju"]
 [ext_resource type="Script" uid="uid://bkahide30v3xd" path="res://scripts/intro/intro_door.gd" id="20_42yju"]

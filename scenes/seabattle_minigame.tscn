@@ -6,8 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://dwagjl1b6jg6u" path="res://objects/enemy_boat.tscn" id="2_rfgc2"]
 [ext_resource type="Script" uid="uid://fbf674wpdtut" path="res://scripts/party/cannon.gd" id="3_05jja"]
 [ext_resource type="PackedScene" uid="uid://befmscucamlc8" path="res://objects/cannon_ball.tscn" id="3_44qmw"]
+[ext_resource type="Texture2D" uid="uid://m2n62g4yl2l1" path="res://sprites/party/Start_graphic.png" id="3_ox80y"]
+[ext_resource type="Theme" uid="uid://bu5dwbdwmpkag" path="res://themes/party_ui.tres" id="3_rfgc2"]
+[ext_resource type="AudioStream" uid="uid://cst3f70qxh1fb" path="res://music/party-2.wav" id="3_vvro2"]
 [ext_resource type="PackedScene" uid="uid://c0ig8vxfpclgs" path="res://models/party/island.glb" id="3_vyrga"]
+[ext_resource type="Texture2D" uid="uid://d0hk40kcs4gk7" path="res://sprites/party/finish_graphic.png" id="4_aywii"]
 [ext_resource type="Texture2D" uid="uid://c2lf8wckv8uas" path="res://sprites/party/baguette.png" id="4_upld4"]
+[ext_resource type="Script" uid="uid://deo4vkpagreuh" path="res://scripts/timer_display.gd" id="6_xcnwj"]
 [ext_resource type="Script" uid="uid://cgneymoyma7jq" path="res://scripts/debug_only.gd" id="7_df3e0"]
 [ext_resource type="Texture2D" uid="uid://qgfcbwywm532" path="res://sprites/debug/spawner.png" id="7_xp26j"]
 [ext_resource type="Script" uid="uid://jhbwuetrm1ga" path="res://scripts/party/enemy_boat.gd" id="8_df3e0"]
@@ -74,15 +79,91 @@ size = Vector3(2.3808594, 4.97937, 32.121826)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_l5raf"]
 
-[node name="SeabattleMinigame" type="Node3D" unique_id=1498805603 node_paths=PackedStringArray("timer", "spawn_points")]
+[node name="SeabattleMinigame" type="Node3D" unique_id=1498805603 node_paths=PackedStringArray("fade_screen", "start_graphic", "finish_graphic", "clock_container", "music_player", "spawn_timer", "finish_timer", "spawn_points")]
 script = ExtResource("1_l5raf")
+fade_screen = NodePath("FadeScreen")
+start_graphic = NodePath("StartGraphic")
+finish_graphic = NodePath("FinishGraphic")
+clock_container = NodePath("TimerContainer")
+music_player = NodePath("MusicPlayer")
 ship_scene = ExtResource("2_rfgc2")
-timer = NodePath("Timer")
+spawn_timer = NodePath("SpawnTimer")
+finish_timer = NodePath("FinishTimer")
 spawn_points = [NodePath("SpawnPoint0"), NodePath("SpawnPoint1"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4")]
 
-[node name="Timer" type="Timer" parent="." unique_id=2101461575]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=259145233]
+stream = ExtResource("3_vvro2")
+
+[node name="FadeScreen" type="ColorRect" parent="." unique_id=641560079]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartGraphic" type="TextureRect" parent="." unique_id=996322027]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -52.0
+offset_right = 180.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ox80y")
+
+[node name="FinishGraphic" type="TextureRect" parent="." unique_id=1900922155]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -52.0
+offset_right = 180.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+texture = ExtResource("4_aywii")
+
+[node name="TimerContainer" type="VBoxContainer" parent="." unique_id=2011751983]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.0
+offset_right = 65.0
+offset_bottom = 174.0
+grow_horizontal = 2
+
+[node name="TimeLabel" type="Label" parent="TimerContainer" unique_id=1270497083]
+layout_mode = 2
+theme = ExtResource("3_rfgc2")
+theme_type_variation = &"HeaderLarge"
+text = "Time"
+horizontal_alignment = 1
+
+[node name="TimerDisplay" type="Label" parent="TimerContainer" unique_id=219988351 node_paths=PackedStringArray("timer")]
+layout_mode = 2
+theme = ExtResource("3_rfgc2")
+theme_type_variation = &"HeaderLarge"
+text = "60"
+horizontal_alignment = 1
+script = ExtResource("6_xcnwj")
+timer = NodePath("../../FinishTimer")
+
+[node name="FinishTimer" type="Timer" parent="." unique_id=818866835]
+wait_time = 60.0
+one_shot = true
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=2101461575]
 wait_time = 5.0
-autostart = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=838233485]
 environment = SubResource("Environment_vyrga")

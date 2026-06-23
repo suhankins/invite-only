@@ -1,0 +1,9 @@
+[gd_resource type="Theme" format=3 uid="uid://bu5dwbdwmpkag"]
+
+[ext_resource type="FontFile" uid="uid://d2pnbehcko6sc" path="res://fonts/cherrybombone/CherryBombOne-Regular.ttf" id="1_vlsdk"]
+
+[resource]
+default_font = ExtResource("1_vlsdk")
+HeaderLarge/colors/font_outline_color = Color(0.78431374, 0.49411765, 0.48235294, 1)
+HeaderLarge/constants/outline_size = 40
+HeaderLarge/font_sizes/font_size = 78
