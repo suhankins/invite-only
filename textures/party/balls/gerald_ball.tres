@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dbwk0vf34qm2t"]
+
+[ext_resource type="Texture2D" uid="uid://bnim5b0sgncgw" path="res://sprites/party/gerald.png" id="1_x2fvc"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_x2fvc")
+uv1_offset = Vector3(0.7, 0.2, 0)

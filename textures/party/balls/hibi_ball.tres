@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dgbkv0c6liohc"]
+
+[ext_resource type="Texture2D" uid="uid://d0nua3e7b7glm" path="res://sprites/party/hibi.png" id="1_h345d"]
+
+[resource]
+diffuse_mode = 2
+specular_mode = 2
+albedo_texture = ExtResource("1_h345d")
+uv1_offset = Vector3(0.75, 0.1, 0)

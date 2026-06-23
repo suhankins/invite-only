@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddh6obkh62b3x"
-path.s3tc="res://.godot/imported/title_screen_background.png-f06ba19549c40216ae75bc104298b978.s3tc.ctex"
+uid="uid://crtwx7cc7qx3l"
+path.s3tc="res://.godot/imported/finish.png-25338e3cb848fe849433e543f31b9b44.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://sprites/party/title_screen_background.png"
-dest_files=["res://.godot/imported/title_screen_background.png-f06ba19549c40216ae75bc104298b978.s3tc.ctex"]
+source_file="res://sprites/party/finish.png"
+dest_files=["res://.godot/imported/finish.png-25338e3cb848fe849433e543f31b9b44.s3tc.ctex"]
 
 [params]
 
