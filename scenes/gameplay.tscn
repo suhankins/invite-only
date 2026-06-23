@@ -89,24 +89,7 @@ _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.5019455, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cpk8l"]
-sky_top_color = Color(4.428029e-06, 0.6928601, 0.9382763, 1)
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-sky_curve = 0.06529134
-ground_bottom_color = Color(0.5621424, 0.66784835, 0.98857135, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-sun_angle_max = 137.03
-sun_curve = 0.6657418
-
-[sub_resource type="Sky" id="Sky_05jja"]
-sky_material = SubResource("ProceduralSkyMaterial_cpk8l")
-
-[sub_resource type="Environment" id="Environment_vyrga"]
-background_mode = 2
-sky = SubResource("Sky_05jja")
-
 [sub_resource type="World3D" id="World3D_cpk8l"]
-environment = SubResource("Environment_vyrga")
 
 [node name="Gameplay" type="Node3D" unique_id=130764812]
 
@@ -243,7 +226,9 @@ script = ExtResource("10_ctvyo")
 bobbing_curve = SubResource("Curve_fto62")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=940048584]
+own_world_3d = true
 world_3d = SubResource("World3D_cpk8l")
+audio_listener_enable_3d = true
 size = Vector2i(576, 324)
 size_2d_override = Vector2i(1152, 648)
 size_2d_override_stretch = true

@@ -5,6 +5,8 @@ extends Node3D
 @export var cannonball_spawn_point: Node3D
 @export var cannonball_miss_target: Node3D
 @export var fire_area: Area3D
+@export var fire_player: AudioStreamPlayer3D
+@export var rotation_player: AudioStreamPlayer3D
 
 var active: bool = false
 
@@ -26,6 +28,7 @@ func start() -> void:
 	gamepad.a_pressed.connect(_fire)
 
 func _fire() -> void:
+	fire_player.play()
 	var cannonball: Cannonball = cannonball_scene.instantiate()
 	get_parent_node_3d().add_child(cannonball)
 	cannonball.global_position = cannonball_spawn_point.global_position
@@ -45,6 +48,10 @@ func _get_ship() -> Variant:
 
 func _rotate_right() -> void:
 	rotation.y = clampf(rotation.y - 0.01, -rotation_cap, rotation_cap)
+	if not rotation_player.playing:
+		rotation_player.play()
 
 func _rotate_left() -> void:
 	rotation.y = clampf(rotation.y + 0.01, -rotation_cap, rotation_cap)
+	if not rotation_player.playing:
+		rotation_player.play()

@@ -18,6 +18,9 @@
 [ext_resource type="Script" uid="uid://cgneymoyma7jq" path="res://scripts/debug_only.gd" id="7_df3e0"]
 [ext_resource type="Texture2D" uid="uid://qgfcbwywm532" path="res://sprites/debug/spawner.png" id="7_xp26j"]
 [ext_resource type="Script" uid="uid://jhbwuetrm1ga" path="res://scripts/party/enemy_boat.gd" id="8_df3e0"]
+[ext_resource type="AudioStream" uid="uid://b0uey4qwhf8l8" path="res://sound/party/cannon_fire.wav" id="16_5syd5"]
+[ext_resource type="AudioStream" uid="uid://ddo76eb4hwiei" path="res://sound/party/rotationsound.wav" id="16_qshps"]
+[ext_resource type="Texture2D" uid="uid://cc0b684o5je7j" path="res://sprites/party/cannonball.png" id="19_0hu4x"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cpk8l"]
 sky_top_color = Color(4.428029e-06, 0.6928601, 0.9382763, 1)
@@ -228,13 +231,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.442, 0, -1.925)
 shape = SubResource("SphereShape3D_g4v7s")
 debug_color = Color(0.9529412, 0, 0.5529412, 1)
 
-[node name="Cannon" type="Node3D" parent="." unique_id=284421916 node_paths=PackedStringArray("cannonball_spawn_point", "cannonball_miss_target", "fire_area")]
+[node name="Cannon" type="Node3D" parent="." unique_id=284421916 node_paths=PackedStringArray("cannonball_spawn_point", "cannonball_miss_target", "fire_area", "fire_player", "rotation_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44232237, 0.49621582, -1.9247296)
 script = ExtResource("3_05jja")
 cannonball_scene = ExtResource("3_44qmw")
 cannonball_spawn_point = NodePath("CannonModel/BallSpawnPoint")
 cannonball_miss_target = NodePath("Area/FireArea/MissTarget")
 fire_area = NodePath("Area/FireArea")
+fire_player = NodePath("FirePlayer")
+rotation_player = NodePath("SpinPlayer")
 
 [node name="PlayableCharacter" type="Sprite3D" parent="Cannon" unique_id=1309015856]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2883817, 0.31552064, 0.63409257)
@@ -271,6 +276,14 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 
 [node name="BallSpawnPoint" type="Node3D" parent="Cannon/CannonModel" unique_id=1334917812]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9604645e-08, 0.6045078, 0.65423036)
+
+[node name="SpinPlayer" type="AudioStreamPlayer3D" parent="Cannon" unique_id=1907677636]
+stream = ExtResource("16_qshps")
+volume_db = -13.0
+
+[node name="FirePlayer" type="AudioStreamPlayer3D" parent="Cannon" unique_id=374650727]
+stream = ExtResource("16_5syd5")
+max_polyphony = 3
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=516494508]
 transform = Transform3D(0.9999619, -0.0013651311, 0.008619096, 0, 0.98768836, 0.1564345, -0.008726534, -0.15642855, 0.98765075, 0.4497795, 1.9136562, -0.079370975)
@@ -323,3 +336,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5381603, -1.1402252, -90.4
 
 [node name="Island2" parent="." unique_id=139351702 instance=ExtResource("3_vyrga")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.397453, -1.1402252, -56.431465)
+
+[node name="DecorativeCannonball" type="Sprite3D" parent="." unique_id=1591439136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1330175, 0.6807344, -1.6700108)
+pixel_size = 0.005
+billboard = 1
+alpha_cut = 1
+texture = ExtResource("19_0hu4x")
+
+[node name="DecorativeCannonball2" type="Sprite3D" parent="." unique_id=55419750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4542804, 0.6807344, -1.7022237)
+pixel_size = 0.005
+billboard = 1
+alpha_cut = 1
+texture = ExtResource("19_0hu4x")
+
+[node name="DecorativeCannonball3" type="Sprite3D" parent="." unique_id=1996155609]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.276263, 0.9817307, -1.8047351)
+pixel_size = 0.005
+billboard = 1
+alpha_cut = 1
+texture = ExtResource("19_0hu4x")

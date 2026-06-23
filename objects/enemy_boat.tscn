@@ -3,13 +3,15 @@
 [ext_resource type="Script" uid="uid://jhbwuetrm1ga" path="res://scripts/party/enemy_boat.gd" id="1_a2etm"]
 [ext_resource type="PackedScene" uid="uid://crogtb51i451e" path="res://models/party/enemy_boat.glb" id="2_1pka6"]
 [ext_resource type="Texture2D" uid="uid://bh3osdvgf10yl" path="res://sprites/party/explosion.png" id="3_kafdu"]
+[ext_resource type="AudioStream" uid="uid://cl2se27b2qbkw" path="res://sound/party/ship_sinking.wav" id="4_1pka6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
 size = Vector3(1.8271484, 1.5640259, 3.8623047)
 
-[node name="EnemyBoat" type="Area3D" unique_id=1661461168 node_paths=PackedStringArray("explosion_sprite")]
+[node name="EnemyBoat" type="Area3D" unique_id=1661461168 node_paths=PackedStringArray("explosion_sprite", "audio_player")]
 script = ExtResource("1_a2etm")
 explosion_sprite = NodePath("Explosion")
+audio_player = NodePath("AudioStreamPlayer3D")
 
 [node name="EnemyModel" parent="." unique_id=378258882 instance=ExtResource("2_1pka6")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.4376706, 0, 0.1543045)
@@ -26,3 +28,7 @@ texture = ExtResource("3_kafdu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41357422, 0.28201294, 0.15771484)
 shape = SubResource("BoxShape3D_yf5fn")
 debug_color = Color(0.6674454, 0.50989634, 3.85046e-07, 1)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=337612311]
+stream = ExtResource("4_1pka6")
+unit_size = 30.0

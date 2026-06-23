@@ -4,6 +4,7 @@ extends Area3D
 @export var speed: float = 2.0
 @export var sinking_speed: float = 2.0
 @export var explosion_sprite: Node3D
+@export var audio_player: AudioStreamPlayer3D
 var goal_position: Vector3
 var alive: bool = true
 
@@ -23,5 +24,9 @@ func _process(delta: float) -> void:
 			queue_free()
 
 func die() -> void:
+	if not alive:
+		return
+	if audio_player:
+		audio_player.play()
 	explosion_sprite.show()
 	alive = false

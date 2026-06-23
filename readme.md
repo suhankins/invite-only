@@ -13,6 +13,9 @@ Developer
 Music
 * Snoozeds
 
+Sound effects
+* flower
+
 Poker players (I took photos of him)
 * Konforka
 
