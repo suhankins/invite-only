@@ -9,6 +9,8 @@ var alive: bool = true
 
 func _ready() -> void:
 	goal_position = get_tree().get_first_node_in_group("enemy_goal").global_position
+	var root = get_tree().get_first_node_in_group("minigame_root")
+	root.finished.connect(die)
 
 func _process(delta: float) -> void:
 	if alive:

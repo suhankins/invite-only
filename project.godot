@@ -28,6 +28,7 @@ window/stretch/aspect="expand"
 
 enemy_goal=""
 Gamepad=""
+minigame_root=""
 
 [physics]
 

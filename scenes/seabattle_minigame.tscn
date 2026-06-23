@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://c0ig8vxfpclgs" path="res://models/party/island.glb" id="3_vyrga"]
 [ext_resource type="Texture2D" uid="uid://d0hk40kcs4gk7" path="res://sprites/party/finish_graphic.png" id="4_aywii"]
 [ext_resource type="Texture2D" uid="uid://c2lf8wckv8uas" path="res://sprites/party/baguette.png" id="4_upld4"]
+[ext_resource type="Texture2D" uid="uid://stnw258bjcmd" path="res://sprites/party/winner_graphic.png" id="6_pgfon"]
 [ext_resource type="Script" uid="uid://deo4vkpagreuh" path="res://scripts/timer_display.gd" id="6_xcnwj"]
+[ext_resource type="Texture2D" uid="uid://1y3vkg73xari" path="res://sprites/party/loser_graphic.png" id="7_6y2ee"]
 [ext_resource type="Script" uid="uid://cgneymoyma7jq" path="res://scripts/debug_only.gd" id="7_df3e0"]
 [ext_resource type="Texture2D" uid="uid://qgfcbwywm532" path="res://sprites/debug/spawner.png" id="7_xp26j"]
 [ext_resource type="Script" uid="uid://jhbwuetrm1ga" path="res://scripts/party/enemy_boat.gd" id="8_df3e0"]
@@ -79,7 +81,7 @@ size = Vector3(2.3808594, 4.97937, 32.121826)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_l5raf"]
 
-[node name="SeabattleMinigame" type="Node3D" unique_id=1498805603 node_paths=PackedStringArray("fade_screen", "start_graphic", "finish_graphic", "clock_container", "music_player", "spawn_timer", "finish_timer", "spawn_points")]
+[node name="SeabattleMinigame" type="Node3D" unique_id=1498805603 node_paths=PackedStringArray("fade_screen", "start_graphic", "finish_graphic", "clock_container", "music_player", "spawn_timer", "finish_timer", "spawn_points") groups=["minigame_root"]]
 script = ExtResource("1_l5raf")
 fade_screen = NodePath("FadeScreen")
 start_graphic = NodePath("StartGraphic")
@@ -132,6 +134,38 @@ grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
 texture = ExtResource("4_aywii")
+
+[node name="WinnerGraphic" type="TextureRect" parent="." unique_id=1727656050]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -52.0
+offset_right = 180.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+texture = ExtResource("6_pgfon")
+
+[node name="LoserGraphic" type="TextureRect" parent="." unique_id=1799264082]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -52.0
+offset_right = 180.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+texture = ExtResource("7_6y2ee")
 
 [node name="TimerContainer" type="VBoxContainer" parent="." unique_id=2011751983]
 anchors_preset = 5

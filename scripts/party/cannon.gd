@@ -6,7 +6,20 @@ extends Node3D
 @export var cannonball_miss_target: Node3D
 @export var fire_area: Area3D
 
+var active: bool = false
+
 func _ready() -> void:
+	var root = get_tree().get_first_node_in_group("minigame_root")
+	root.started.connect(start)
+	root.finished.connect(stop)
+
+func stop() -> void:
+	var gamepad: Gamepad = get_tree().get_first_node_in_group("Gamepad")
+	gamepad.spun_clockwise.disconnect(_rotate_right)
+	gamepad.spun_counter_clockwise.disconnect(_rotate_left)
+	gamepad.a_pressed.disconnect(_fire)
+
+func start() -> void:
 	var gamepad: Gamepad = get_tree().get_first_node_in_group("Gamepad")
 	gamepad.spun_clockwise.connect(_rotate_right)
 	gamepad.spun_counter_clockwise.connect(_rotate_left)

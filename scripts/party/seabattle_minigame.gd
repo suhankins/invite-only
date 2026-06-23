@@ -1,5 +1,10 @@
 extends Node3D
 
+signal restart()
+signal next_minigame()
+signal started()
+signal finished()
+
 @export var fade_screen: ColorRect
 @export var start_graphic: Control
 @export var finish_graphic: Control
@@ -13,6 +18,7 @@ extends Node3D
 
 func _ready() -> void:
 	spawn_timer.timeout.connect(_spawn_enemy)
+	finish_timer.timeout.connect(_finish_victory)
 	start_graphic.hide()
 	finish_graphic.hide()
 	clock_container.hide()
@@ -31,12 +37,36 @@ func _start_minigame() -> void:
 	tween.tween_property(start_graphic, "offset_transform_scale", Vector2.ONE, 1.0)
 	UiAudio.playback.play_stream(load("res://sound/party/announcer_start.wav"))
 	await tween.finished
-	start_graphic.hide()
 
+	start_graphic.hide()
+	started.emit()
 	clock_container.show()
 	spawn_timer.start()
 	finish_timer.start()
 	music_player.play()
+	_spawn_enemy()
+
+func _finish_lose() -> void:
+	await _finish_generic()
+
+func _finish_victory() -> void:
+	await _finish_generic()
+	print("Done")
+
+func _finish_generic() -> void:
+	finished.emit()
+	finish_timer.stop()
+	spawn_timer.stop()
+	music_player.stop()
+	UiAudio.playback.play_stream(load("res://sound/party/announcer_finish.wav"))
+	clock_container.hide()
+	finish_graphic.show()
+	finish_graphic.offset_transform_scale = Vector2(0.5, 0.5)
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_BOUNCE)
+	tween.tween_property(finish_graphic, "offset_transform_scale", Vector2.ONE, 1.0)
+	await tween.finished
+	await get_tree().create_timer(2.0).timeout
 
 func _spawn_enemy() -> void:
 	var point: Node3D = spawn_points.pick_random()
