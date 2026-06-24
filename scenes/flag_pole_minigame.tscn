@@ -3,8 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://d2cnrue748wae" path="res://sprites/party/sky.png" id="1_4s8aw"]
 [ext_resource type="Texture2D" uid="uid://c2lf8wckv8uas" path="res://sprites/party/baguette.png" id="1_6gucy"]
 [ext_resource type="Texture2D" uid="uid://b71uk838j0hgl" path="res://sprites/party/moon.png" id="2_sxabt"]
+[ext_resource type="Script" uid="uid://7wrwglhr3b16" path="res://scripts/spinner.gd" id="2_xxu0p"]
 [ext_resource type="Texture2D" uid="uid://crtwx7cc7qx3l" path="res://sprites/party/finish.png" id="3_hwawf"]
+[ext_resource type="Texture2D" uid="uid://jhxaft50kje2" path="res://sprites/party/bird.png" id="3_y3pp8"]
+[ext_resource type="Texture2D" uid="uid://ys2cq3r8ovxj" path="res://sprites/party/plane.png" id="4_dkwli"]
 [ext_resource type="Script" uid="uid://chmdap8bodpdb" path="res://scripts/party/flag.gd" id="4_hwawf"]
+[ext_resource type="Texture2D" uid="uid://biliewhh6ye50" path="res://sprites/party/hot_air_balloon.png" id="4_y3pp8"]
+[ext_resource type="Texture2D" uid="uid://bw03bfg3y1yuy" path="res://sprites/party/satellite.png" id="6_02iu7"]
+[ext_resource type="Texture2D" uid="uid://u4e71rrqjkq1" path="res://sprites/party/rocket.png" id="7_xu6w0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sxabt"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -29,6 +35,19 @@ height = 174.24092
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hwawf"]
 size = Vector3(0.5, 200, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hwawf"]
+transparency = 1
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(1, 1, 1, 0.6666667)
+
+[sub_resource type="SphereMesh" id="SphereMesh_yf5fn"]
+material = SubResource("StandardMaterial3D_hwawf")
+radius = 4.0
+height = 4.0
+radial_segments = 16
+rings = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
 albedo_color = Color(0, 0.55377686, 0.067252874, 1)
@@ -84,6 +103,66 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027658463, 90.50734, -0.012
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1831207448]
 shape = SubResource("BoxShape3D_hwawf")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1151897522]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5506516, 60, 0)
+mesh = SubResource("SphereMesh_yf5fn")
+
+[node name="BirdSpinner" type="Node3D" parent="." unique_id=1406815144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16405773, 47, 0)
+script = ExtResource("2_xxu0p")
+movement = Vector3(0, 0.5, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="BirdSpinner" unique_id=1310198302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.027631, 0, 0)
+pixel_size = 0.005
+billboard = 1
+shaded = true
+texture = ExtResource("3_y3pp8")
+
+[node name="Sprite3D2" type="Sprite3D" parent="BirdSpinner" unique_id=482330222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9723692, -2, 0)
+pixel_size = 0.005
+billboard = 1
+shaded = true
+texture = ExtResource("3_y3pp8")
+
+[node name="BirdSpinner2" type="Node3D" parent="." unique_id=466956136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16405773, 76, 0)
+script = ExtResource("2_xxu0p")
+movement = Vector3(0, 0.5, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="BirdSpinner2" unique_id=2036949688]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4552927, 0, 0)
+pixel_size = 0.02
+billboard = 1
+shaded = true
+texture = ExtResource("4_dkwli")
+
+[node name="Sprite3D3" type="Sprite3D" parent="." unique_id=1623420909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2395573, 28, 0)
+pixel_size = 0.02
+billboard = 1
+shaded = true
+texture = ExtResource("4_y3pp8")
+
+[node name="Sprite3D4" type="Sprite3D" parent="." unique_id=1321673190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2395573, 126, 0)
+pixel_size = 0.015
+billboard = 1
+shaded = true
+texture = ExtResource("6_02iu7")
+
+[node name="Sprite3D5" type="Sprite3D" parent="." unique_id=1983883297]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7604427, 155, 0)
+pixel_size = 0.02
+billboard = 1
+shaded = true
+texture = ExtResource("7_xu6w0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=472425371]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4493484, 65, 0)
+mesh = SubResource("SphereMesh_yf5fn")
+
 [node name="Earth" type="MeshInstance3D" parent="." unique_id=1681736568]
 mesh = SubResource("SphereMesh_g4v7s")
 
@@ -103,8 +182,9 @@ spot_range = 28.471817
 spot_angle = 53.526596
 
 [node name="Flag" type="Node3D" parent="." unique_id=611934388]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.4110866, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.4, 0)
 script = ExtResource("4_hwawf")
+maximum_height = 177.0
 
 [node name="SoftBody3D" type="SoftBody3D" parent="Flag" unique_id=1429139584]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.9896858, 0, 0)
