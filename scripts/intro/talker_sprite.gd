@@ -1,5 +1,5 @@
 class_name TalkerSprite
-extends Sprite3D
+extends Node3D
 
 @export var audio_player_3d: AudioStreamPlayer3D
 @export var label_3d: Label3D

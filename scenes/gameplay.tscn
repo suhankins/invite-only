@@ -1,18 +1,27 @@
 [gd_scene format=4 uid="uid://dm7lgdxdfcwwe"]
 
 [ext_resource type="Texture2D" uid="uid://cqo2jsnk54vcm" path="res://sprites/gamepad.png" id="1_00tan"]
+[ext_resource type="Script" uid="uid://oj7ivnb1qetw" path="res://scripts/main_gameplay_scene.gd" id="1_25e7j"]
 [ext_resource type="Texture2D" uid="uid://b86f2n0w7uelp" path="res://skybox/NightSkyHDRI003_1K_TONEMAPPED.jpg" id="1_e124b"]
 [ext_resource type="Shader" uid="uid://ctkj5odvrc3ai" path="res://shaders/vhs/vhs.gdshader" id="2_ctvyo"]
 [ext_resource type="Texture2D" uid="uid://bm4qnmsprjn72" path="res://sprites/joystick.png" id="2_l1v76"]
+[ext_resource type="PackedScene" uid="uid://fjy3ocliht7d" path="res://scenes/party_title_screen.tscn" id="2_t4x03"]
 [ext_resource type="Script" uid="uid://c4cshpqsi4pim" path="res://scripts/joy_stick.gd" id="3_l1v76"]
+[ext_resource type="PackedScene" uid="uid://2obtbanh7g8l" path="res://scenes/seabattle_minigame.tscn" id="3_ucu43"]
 [ext_resource type="PackedScene" uid="uid://ojklfl2v8477" path="res://models/structure/psx-pack/wall_1.glb" id="4_4bh5q"]
+[ext_resource type="PackedScene" uid="uid://de7wln44737r" path="res://scenes/rolling_ball_minigame.tscn" id="4_cuhxg"]
 [ext_resource type="Script" uid="uid://k4e2xxpkjyql" path="res://scripts/gamepad.gd" id="4_nt65e"]
 [ext_resource type="Material" uid="uid://b1b46mwmp4lkg" path="res://textures/psx-pack/wood_floor_1.tres" id="5_e124b"]
 [ext_resource type="Texture2D" uid="uid://dfsq1i74p60hk" path="res://models/furniture/poker-table_0.png" id="6_101mb"]
 [ext_resource type="Script" uid="uid://blw7vws4nonks" path="res://scripts/gamepad_button.gd" id="6_nt65e"]
 [ext_resource type="ArrayMesh" uid="uid://bf2lr2rbi1s4k" path="res://models/electronics/psx-pack/tv_mp_1_tv_mp_1.res" id="8_101mb"]
 [ext_resource type="Script" uid="uid://bie0138d0cwa8" path="res://scripts/intro/shaky_cam.gd" id="10_ctvyo"]
-[ext_resource type="PackedScene" uid="uid://2obtbanh7g8l" path="res://scenes/seabattle_minigame.tscn" id="13_nt65e"]
+[ext_resource type="PackedScene" uid="uid://dvamoegtmtsql" path="res://scenes/flag_pole_minigame.tscn" id="13_nt65e"]
+[ext_resource type="PackedScene" uid="uid://b6o3vsoj58d7q" path="res://models/food/beer.glb" id="14_bhmdk"]
+[ext_resource type="Script" uid="uid://6vow31j8237n" path="res://scripts/intro/talker_sprite.gd" id="14_w3w6i"]
+[ext_resource type="FontFile" uid="uid://csfb1k7tw6nyq" path="res://fonts/crimsonpro/CrimsonPro-Regular.ttf" id="15_pv71h"]
+[ext_resource type="AudioStream" uid="uid://b5d6ymwoa25ld" path="res://sound/drinking_beer.wav" id="15_s5y6v"]
+[ext_resource type="Texture2D" uid="uid://bb0r28fdtibg3" path="res://sprites/leader-plugging-in.png" id="18_vrqbj"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_101mb"]
 panorama = ExtResource("1_e124b")
@@ -91,7 +100,150 @@ point_count = 3
 
 [sub_resource type="World3D" id="World3D_cpk8l"]
 
-[node name="Gameplay" type="Node3D" unique_id=130764812]
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font = ExtResource("15_pv71h")
+font_size = 128
+
+[sub_resource type="Animation" id="Animation_407ns"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BeerCan:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5026047, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BeerCan:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.94811934, 0.015455753, -5.8059735)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w3w6i"]
+resource_name = "drinking"
+length = 3.4333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BeerCan:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.3, 2.1, 3.38),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.50576055, 1.4928272, -0.03783259), Vector3(0.50576055, -0.07179344, -0.037832588), Vector3(1.6894788, -0.0715585, -0.038397245), Vector3(1.6894788, -0.0715585, -0.038397245), Vector3(0, 1.5026047, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BeerCan:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.31, 2.1, 3.38),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.94811934, 0.6182084, -5.8059735), Vector3(1.4304674, 0.6182084, -5.8059735), Vector3(1.4304674, 0.80663264, -5.8059735), Vector3(1.4304674, 0.80663264, -5.8059735), Vector3(0.94811934, 0.015455753, -5.8059735)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6333333, 1.3, 2.1, 3.38),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.20943952, 0, 0), Vector3(0.20943952, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFXInOurHead")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 3.3799999,
+"stream": ExtResource("15_s5y6v")
+}],
+"times": PackedFloat32Array(0.5)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="Animation" id="Animation_pv71h"]
+resource_name = "offering"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BeerCan:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5026047, 0), Vector3(0.50576055, 1.4928272, -0.03783259)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BeerCan:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.94811934, 0.06259248, -5.8059735), Vector3(0.94811934, 0.6182084, -5.8059735)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w3w6i"]
+_data = {
+&"RESET": SubResource("Animation_407ns"),
+&"drinking": SubResource("Animation_w3w6i"),
+&"offering": SubResource("Animation_pv71h")
+}
+
+[node name="Gameplay" type="Node3D" unique_id=130764812 node_paths=PackedStringArray("sub_viewport", "fade_in", "leader_fixing_tv", "no_signal_card", "fake_leader", "gamepad")]
+script = ExtResource("1_25e7j")
+sub_viewport = NodePath("SubViewport")
+title_screen_scene = ExtResource("2_t4x03")
+minigame_0_scene = ExtResource("3_ucu43")
+minigame_1_scene = ExtResource("4_cuhxg")
+minigame_2_scene = ExtResource("13_nt65e")
+fade_in = NodePath("FadeIn")
+leader_fixing_tv = NodePath("LeaderFixingTV")
+no_signal_card = NodePath("SubViewport/NoSignalText")
+fake_leader = NodePath("FakeLeader")
+gamepad = NodePath("Gamepad")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1685457892]
 transform = Transform3D(-0.8660253, -0.43301272, 0.25000012, 0.28138712, -0.008775085, 0.95955426, -0.4133055, 0.9013451, 0.1294437, 0, 4, 0)
@@ -111,7 +263,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Gamepad" type="TextureRect" parent="." unique_id=10052216 node_paths=PackedStringArray("joystick", "a_button", "b_button") groups=["Gamepad"]]
+[node name="Gamepad" type="TextureRect" parent="." unique_id=10052216 node_paths=PackedStringArray("joystick", "a_button") groups=["Gamepad"]]
+visible = false
 texture_filter = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -128,7 +281,6 @@ texture = ExtResource("1_00tan")
 script = ExtResource("4_nt65e")
 joystick = NodePath("Control/JoyStick")
 a_button = NodePath("AButton")
-b_button = NodePath("BButton")
 
 [node name="Control" type="Control" parent="Gamepad" unique_id=1628695519]
 layout_mode = 1
@@ -178,16 +330,14 @@ action_mode = 0
 flat = true
 script = ExtResource("6_nt65e")
 
-[node name="BButton" type="Button" parent="Gamepad" unique_id=1922363258]
-layout_mode = 0
-offset_left = 285.0
-offset_top = 151.0
-offset_right = 331.0
-offset_bottom = 194.0
-mouse_default_cursor_shape = 2
-action_mode = 0
-flat = true
-script = ExtResource("6_nt65e")
+[node name="FadeIn" type="ColorRect" parent="." unique_id=1198701111]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=350971441]
 transform = Transform3D(0.9314779, 0.12821747, -0.34045437, 0.36379787, -0.32829148, 0.8717086, 0, -0.9358339, -0.35244152, -0.022109866, 3.0433943, -6.6756797)
@@ -212,16 +362,22 @@ mesh = SubResource("ArrayMesh_ctvyo")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4193252, 0.23289728, -6.520098)
 mesh = SubResource("ArrayMesh_nt65e")
 
-[node name="TVLight" type="SpotLight3D" parent="." unique_id=691102397]
-transform = Transform3D(1, 0, 0, 0, -0.75301045, 0.6580085, 0, -0.6580085, -0.75301045, 1.3893496, 1.137327, -6.18581)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1374390185]
+[node name="TV" type="MeshInstance3D" parent="." unique_id=1374390185]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3893496, 0.40105015, -6.830014)
 mesh = ExtResource("8_101mb")
 surface_material_override/1 = SubResource("StandardMaterial3D_g4v7s")
 
+[node name="Label3D" type="Label3D" parent="TV" unique_id=2107210656]
+transform = Transform3D(0.9999999, 0, -1.4901161e-08, 0, 1, 0, 1.4901161e-08, 0, 0.9999999, 0.04279685, 1.5592499, -0.08347702)
+billboard = 1
+no_depth_test = true
+texture_filter = 0
+font = ExtResource("15_pv71h")
+font_size = 36
+vertical_alignment = 0
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=530484943]
-transform = Transform3D(0.9999905, -0.00041820473, 0.0043432224, 0.0005568385, 0.9994888, -0.031967577, -0.0043276334, 0.031969693, 0.9994795, 1.389, 0.875, -5.3292885)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.389, 0.875, -5.3292885)
 script = ExtResource("10_ctvyo")
 bobbing_curve = SubResource("Curve_fto62")
 
@@ -233,4 +389,57 @@ size = Vector2i(576, 324)
 size_2d_override = Vector2i(1152, 648)
 size_2d_override_stretch = true
 
-[node name="SeabattleMinigame" parent="SubViewport" unique_id=1498805603 instance=ExtResource("13_nt65e")]
+[node name="NoSignalText" type="Label" parent="SubViewport" unique_id=1744760366]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "No signal"
+label_settings = SubResource("LabelSettings_g4v7s")
+
+[node name="LeaderFixingTV" type="Sprite3D" parent="." unique_id=1235455307 node_paths=PackedStringArray("audio_player_3d", "label_3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2550469, 0.66326547, -6.5699606)
+cast_shadow = 0
+pixel_size = 0.02
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("18_vrqbj")
+script = ExtResource("14_w3w6i")
+audio_player_3d = NodePath("AudioStreamPlayer3D")
+label_3d = NodePath("Label3D")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="LeaderFixingTV" unique_id=750796359]
+
+[node name="Label3D" type="Label3D" parent="LeaderFixingTV" unique_id=361459880]
+transform = Transform3D(0.9999999, 0, -1.4901161e-08, 0, 1, 0, 1.4901161e-08, 0, 0.9999999, 0.04279685, 0.8307513, -0.08347702)
+billboard = 1
+no_depth_test = true
+texture_filter = 0
+font = ExtResource("15_pv71h")
+font_size = 36
+horizontal_alignment = 0
+
+[node name="BeerCan" parent="." unique_id=1334444207 instance=ExtResource("14_bhmdk")]
+transform = Transform3D(0.06813876, 0, 0.9976758, 0, 1, 0, -0.99767584, 0, 0.068138756, 0.94811934, 0.015455753, -5.8059735)
+
+[node name="BeerDrinkingAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1277452579]
+libraries/ = SubResource("AnimationLibrary_w3w6i")
+
+[node name="SFXInOurHead" type="AudioStreamPlayer" parent="." unique_id=322898717]
+
+[node name="FakeLeader" type="Node3D" parent="." unique_id=1333545203 node_paths=PackedStringArray("audio_player_3d", "label_3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4863641, 0.88413155, -5.535696)
+script = ExtResource("14_w3w6i")
+audio_player_3d = NodePath("AudioStreamPlayer3D")
+label_3d = NodePath("../TV/Label3D")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="FakeLeader" unique_id=72113372]

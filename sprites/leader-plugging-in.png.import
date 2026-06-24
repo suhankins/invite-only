@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm4qnmsprjn72"
-path.s3tc="res://.godot/imported/joystick.png-9baaad9daacfc6c722862e1b8cada1e3.s3tc.ctex"
+uid="uid://bb0r28fdtibg3"
+path.s3tc="res://.godot/imported/leader-plugging-in.png-7b6ba4caa18a10834b4845669ec6296f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://sprites/joystick.png"
-dest_files=["res://.godot/imported/joystick.png-9baaad9daacfc6c722862e1b8cada1e3.s3tc.ctex"]
+source_file="res://sprites/leader-plugging-in.png"
+dest_files=["res://.godot/imported/leader-plugging-in.png-7b6ba4caa18a10834b4845669ec6296f.s3tc.ctex"]
 
 [params]
 

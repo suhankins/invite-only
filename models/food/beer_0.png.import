@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm4qnmsprjn72"
-path.s3tc="res://.godot/imported/joystick.png-9baaad9daacfc6c722862e1b8cada1e3.s3tc.ctex"
+uid="uid://d36fjbj12fgfk"
+path.s3tc="res://.godot/imported/beer_0.png-64d9f7496e2aaaa969669c7161e63337.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "cd0b380a342248e472f0b63a06d91926"
+}
 
 [deps]
 
-source_file="res://sprites/joystick.png"
-dest_files=["res://.godot/imported/joystick.png-9baaad9daacfc6c722862e1b8cada1e3.s3tc.ctex"]
+source_file="res://models/food/beer_0.png"
+dest_files=["res://.godot/imported/beer_0.png-64d9f7496e2aaaa969669c7161e63337.s3tc.ctex"]
 
 [params]
 
