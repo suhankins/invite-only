@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://fbf674wpdtut" path="res://scripts/party/cannon.gd" id="3_05jja"]
 [ext_resource type="PackedScene" uid="uid://befmscucamlc8" path="res://objects/cannon_ball.tscn" id="3_44qmw"]
 [ext_resource type="Texture2D" uid="uid://m2n62g4yl2l1" path="res://sprites/party/Start_graphic.png" id="3_ox80y"]
+[ext_resource type="AudioStream" uid="uid://c8s65q2l5strg" path="res://sound/party/wave_small.wav" id="3_qshps"]
 [ext_resource type="Theme" uid="uid://bu5dwbdwmpkag" path="res://themes/party_ui.tres" id="3_rfgc2"]
 [ext_resource type="AudioStream" uid="uid://cst3f70qxh1fb" path="res://music/party-2.wav" id="3_vvro2"]
 [ext_resource type="PackedScene" uid="uid://c0ig8vxfpclgs" path="res://models/party/island.glb" id="3_vyrga"]
@@ -17,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://1y3vkg73xari" path="res://sprites/party/loser_graphic.png" id="7_6y2ee"]
 [ext_resource type="Script" uid="uid://cgneymoyma7jq" path="res://scripts/debug_only.gd" id="7_df3e0"]
 [ext_resource type="Texture2D" uid="uid://qgfcbwywm532" path="res://sprites/debug/spawner.png" id="7_xp26j"]
+[ext_resource type="Script" uid="uid://xhjn7mbxx7y" path="res://scripts/party/enemy_goal.gd" id="12_a30d8"]
 [ext_resource type="AudioStream" uid="uid://b0uey4qwhf8l8" path="res://sound/party/cannon_fire.wav" id="16_5syd5"]
 [ext_resource type="AudioStream" uid="uid://ddo76eb4hwiei" path="res://sound/party/rotationsound.wav" id="16_qshps"]
 [ext_resource type="Texture2D" uid="uid://cc0b684o5je7j" path="res://sprites/party/cannonball.png" id="19_0hu4x"]
@@ -81,28 +83,26 @@ center_offset = Vector3(0, 0, -12.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(2.3808594, 4.97937, 32.121826)
 
-[node name="SeabattleMinigame" type="Node3D" unique_id=1498805603 node_paths=PackedStringArray("fade_screen", "start_graphic", "finish_graphic", "clock_container", "music_player", "spawn_timer", "finish_timer", "spawn_points") groups=["minigame_root"]]
+[node name="SeabattleMinigame" type="Node3D" unique_id=1498805603 node_paths=PackedStringArray("fade_screen", "start_graphic", "finish_graphic", "clock_container", "music_player", "winner_graphic", "loser_graphic", "spawn_timer", "finish_timer", "spawn_points") groups=["minigame_root"]]
 script = ExtResource("1_l5raf")
 fade_screen = NodePath("FadeScreen")
 start_graphic = NodePath("StartGraphic")
 finish_graphic = NodePath("FinishGraphic")
 clock_container = NodePath("TimerContainer")
 music_player = NodePath("MusicPlayer")
+winner_graphic = NodePath("WinnerGraphic")
+loser_graphic = NodePath("LoserGraphic")
 ship_scene = ExtResource("2_rfgc2")
 spawn_timer = NodePath("SpawnTimer")
 finish_timer = NodePath("FinishTimer")
 spawn_points = [NodePath("SpawnPoint0"), NodePath("SpawnPoint1"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4")]
 
+[node name="WaveInTheOpening" type="AudioStreamPlayer" parent="." unique_id=849110069]
+stream = ExtResource("3_qshps")
+autoplay = true
+
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=259145233]
 stream = ExtResource("3_vvro2")
-
-[node name="FadeScreen" type="ColorRect" parent="." unique_id=641560079]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="StartGraphic" type="TextureRect" parent="." unique_id=996322027]
 visible = false
@@ -192,6 +192,14 @@ horizontal_alignment = 1
 script = ExtResource("6_xcnwj")
 timer = NodePath("../../FinishTimer")
 
+[node name="FadeScreen" type="ColorRect" parent="." unique_id=641560079]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="FinishTimer" type="Timer" parent="." unique_id=818866835]
 wait_time = 60.0
 one_shot = true
@@ -223,6 +231,7 @@ mesh = SubResource("BoxMesh_44qmw")
 
 [node name="EnemyGoal" type="Area3D" parent="." unique_id=355158409 groups=["enemy_goal"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.442, 0, -1.925)
+script = ExtResource("12_a30d8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyGoal" unique_id=1185819847]
 shape = SubResource("SphereShape3D_g4v7s")
