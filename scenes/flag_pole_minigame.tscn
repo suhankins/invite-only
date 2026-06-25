@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dvamoegtmtsql"]
 
+[ext_resource type="Texture2D" uid="uid://d0nua3e7b7glm" path="res://sprites/party/hibi.png" id="1_02iu7"]
 [ext_resource type="Texture2D" uid="uid://d2cnrue748wae" path="res://sprites/party/sky.png" id="1_4s8aw"]
-[ext_resource type="Texture2D" uid="uid://c2lf8wckv8uas" path="res://sprites/party/baguette.png" id="1_6gucy"]
 [ext_resource type="Texture2D" uid="uid://b71uk838j0hgl" path="res://sprites/party/moon.png" id="2_sxabt"]
 [ext_resource type="Script" uid="uid://7wrwglhr3b16" path="res://scripts/spinner.gd" id="2_xxu0p"]
 [ext_resource type="Texture2D" uid="uid://crtwx7cc7qx3l" path="res://sprites/party/finish.png" id="3_hwawf"]
@@ -71,7 +71,7 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 cull_mode = 2
-albedo_texture = ExtResource("1_6gucy")
+albedo_texture = ExtResource("1_02iu7")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
 material = SubResource("StandardMaterial3D_g4v7s")
@@ -88,10 +88,10 @@ transform = Transform3D(1, -1.4374822e-07, 9.953599e-08, 0, 0.5692795, 0.8221440
 shadow_enabled = true
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=587015597]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6427636, 5.5037913, 0)
-pixel_size = 0.005
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81390023, 5.408691, 0)
+pixel_size = 0.006
 alpha_cut = 1
-texture = ExtResource("1_6gucy")
+texture = ExtResource("1_02iu7")
 
 [node name="Pole" type="MeshInstance3D" parent="." unique_id=379029163]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027658463, 91.02311, -0.012983322)

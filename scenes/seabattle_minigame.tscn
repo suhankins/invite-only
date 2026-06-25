@@ -12,13 +12,13 @@
 [ext_resource type="AudioStream" uid="uid://cst3f70qxh1fb" path="res://music/party-2.wav" id="3_vvro2"]
 [ext_resource type="PackedScene" uid="uid://c0ig8vxfpclgs" path="res://models/party/island.glb" id="3_vyrga"]
 [ext_resource type="Texture2D" uid="uid://d0hk40kcs4gk7" path="res://sprites/party/finish_graphic.png" id="4_aywii"]
-[ext_resource type="Texture2D" uid="uid://c2lf8wckv8uas" path="res://sprites/party/baguette.png" id="4_upld4"]
 [ext_resource type="Texture2D" uid="uid://stnw258bjcmd" path="res://sprites/party/winner_graphic.png" id="6_pgfon"]
 [ext_resource type="Script" uid="uid://deo4vkpagreuh" path="res://scripts/timer_display.gd" id="6_xcnwj"]
 [ext_resource type="Texture2D" uid="uid://1y3vkg73xari" path="res://sprites/party/loser_graphic.png" id="7_6y2ee"]
 [ext_resource type="Script" uid="uid://cgneymoyma7jq" path="res://scripts/debug_only.gd" id="7_df3e0"]
 [ext_resource type="Texture2D" uid="uid://qgfcbwywm532" path="res://sprites/debug/spawner.png" id="7_xp26j"]
 [ext_resource type="Script" uid="uid://xhjn7mbxx7y" path="res://scripts/party/enemy_goal.gd" id="12_a30d8"]
+[ext_resource type="Texture2D" uid="uid://bnim5b0sgncgw" path="res://sprites/party/gerald.png" id="15_a30d8"]
 [ext_resource type="AudioStream" uid="uid://b0uey4qwhf8l8" path="res://sound/party/cannon_fire.wav" id="16_5syd5"]
 [ext_resource type="AudioStream" uid="uid://ddo76eb4hwiei" path="res://sound/party/rotationsound.wav" id="16_qshps"]
 [ext_resource type="Texture2D" uid="uid://cc0b684o5je7j" path="res://sprites/party/cannonball.png" id="19_0hu4x"]
@@ -83,19 +83,19 @@ center_offset = Vector3(0, 0, -12.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(2.3808594, 4.97937, 32.121826)
 
-[node name="SeabattleMinigame" type="Node3D" unique_id=1498805603 node_paths=PackedStringArray("fade_screen", "start_graphic", "finish_graphic", "clock_container", "music_player", "winner_graphic", "loser_graphic", "spawn_timer", "finish_timer", "spawn_points") groups=["minigame_root"]]
+[node name="SeabattleMinigame" type="Node3D" unique_id=1498805603 node_paths=PackedStringArray("clock_container", "spawn_timer", "finish_timer", "spawn_points", "fade_screen", "start_graphic", "finish_graphic", "winner_graphic", "loser_graphic", "music_player") groups=["minigame_root"]]
 script = ExtResource("1_l5raf")
-fade_screen = NodePath("FadeScreen")
-start_graphic = NodePath("StartGraphic")
-finish_graphic = NodePath("FinishGraphic")
 clock_container = NodePath("TimerContainer")
-music_player = NodePath("MusicPlayer")
-winner_graphic = NodePath("WinnerGraphic")
-loser_graphic = NodePath("LoserGraphic")
 ship_scene = ExtResource("2_rfgc2")
 spawn_timer = NodePath("SpawnTimer")
 finish_timer = NodePath("FinishTimer")
 spawn_points = [NodePath("SpawnPoint0"), NodePath("SpawnPoint1"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4")]
+fade_screen = NodePath("FadeScreen")
+start_graphic = NodePath("StartGraphic")
+finish_graphic = NodePath("FinishGraphic")
+winner_graphic = NodePath("WinnerGraphic")
+loser_graphic = NodePath("LoserGraphic")
+music_player = NodePath("MusicPlayer")
 
 [node name="WaveInTheOpening" type="AudioStreamPlayer" parent="." unique_id=849110069]
 stream = ExtResource("3_qshps")
@@ -249,10 +249,10 @@ rotation_player = NodePath("SpinPlayer")
 
 [node name="PlayableCharacter" type="Sprite3D" parent="Cannon" unique_id=1309015856]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2883817, 0.31552064, 0.63409257)
-pixel_size = 0.003
+pixel_size = 0.005
 billboard = 2
 alpha_cut = 1
-texture = ExtResource("4_upld4")
+texture = ExtResource("15_a30d8")
 
 [node name="Area" type="MeshInstance3D" parent="Cannon" unique_id=491280770]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.26249564, 0)

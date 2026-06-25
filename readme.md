@@ -33,5 +33,6 @@ Assets
 
 Fun stories about how some assets were made:
 * Poker table texture is my towel hue shifted towards green
+* Names of playable characters are Baguette (Teto plushie), Gerald (Blahaj), and Hibi (plushie with a yellow hibiscus)
 
 Shout outs to https://valsekamerplant.itch.io/texture-retrofier

@@ -22,6 +22,7 @@
 [ext_resource type="FontFile" uid="uid://csfb1k7tw6nyq" path="res://fonts/crimsonpro/CrimsonPro-Regular.ttf" id="15_pv71h"]
 [ext_resource type="AudioStream" uid="uid://b5d6ymwoa25ld" path="res://sound/drinking_beer.wav" id="15_s5y6v"]
 [ext_resource type="Texture2D" uid="uid://bb0r28fdtibg3" path="res://sprites/leader-plugging-in.png" id="18_vrqbj"]
+[ext_resource type="Script" uid="uid://dx1t1shbxw4vx" path="res://scripts/beer.gd" id="22_t4x03"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_101mb"]
 panorama = ExtResource("1_e124b")
@@ -103,6 +104,9 @@ point_count = 3
 [sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
 font = ExtResource("15_pv71h")
 font_size = 128
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(0.21582031, 0.5019531, 0.22949219)
 
 [sub_resource type="Animation" id="Animation_407ns"]
 length = 0.001
@@ -232,7 +236,7 @@ _data = {
 &"offering": SubResource("Animation_pv71h")
 }
 
-[node name="Gameplay" type="Node3D" unique_id=130764812 node_paths=PackedStringArray("sub_viewport", "fade_in", "leader_fixing_tv", "no_signal_card", "fake_leader", "gamepad")]
+[node name="Gameplay" type="Node3D" unique_id=130764812 node_paths=PackedStringArray("sub_viewport", "fade_in", "leader_fixing_tv", "no_signal_card", "fake_leader", "gamepad", "animation_player", "beer")]
 script = ExtResource("1_25e7j")
 sub_viewport = NodePath("SubViewport")
 title_screen_scene = ExtResource("2_t4x03")
@@ -242,6 +246,8 @@ leader_fixing_tv = NodePath("LeaderFixingTV")
 no_signal_card = NodePath("SubViewport/NoSignalText")
 fake_leader = NodePath("FakeLeader")
 gamepad = NodePath("Gamepad")
+animation_player = NodePath("BeerDrinkingAnimationPlayer")
+beer = NodePath("BeerCan/BeerArea")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1685457892]
 transform = Transform3D(-0.8660253, -0.43301272, 0.25000012, 0.28138712, -0.008775085, 0.95955426, -0.4133055, 0.9013451, 0.1294437, 0, 4, 0)
@@ -429,6 +435,16 @@ horizontal_alignment = 0
 
 [node name="BeerCan" parent="." unique_id=1334444207 instance=ExtResource("14_bhmdk")]
 transform = Transform3D(0.06813876, 0, 0.9976758, 0, 1, 0, -0.99767584, 0, 0.068138756, 0.94811934, 0.015455753, -5.8059735)
+
+[node name="BeerArea" type="Area3D" parent="BeerCan" unique_id=34784994 node_paths=PackedStringArray("animation_player", "gamepad")]
+input_ray_pickable = false
+monitoring = false
+script = ExtResource("22_t4x03")
+animation_player = NodePath("../../BeerDrinkingAnimationPlayer")
+gamepad = NodePath("../../Gamepad")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BeerCan/BeerArea" unique_id=1747014903]
+shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="BeerDrinkingAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1277452579]
 libraries/ = SubResource("AnimationLibrary_w3w6i")

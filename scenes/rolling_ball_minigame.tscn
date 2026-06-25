@@ -1,14 +1,21 @@
 [gd_scene format=4 uid="uid://de7wln44737r"]
 
+[ext_resource type="Script" uid="uid://fhe8kf61262i" path="res://scripts/party/minigame.gd" id="1_fvrno"]
 [ext_resource type="Texture2D" uid="uid://ddh6obkh62b3x" path="res://sprites/party/title_screen_background.png" id="1_m2eqm"]
 [ext_resource type="Script" uid="uid://c7h2jkuegc7at" path="res://scripts/party/ball_death_zone.gd" id="2_fias3"]
 [ext_resource type="Material" uid="uid://c22a8qbpn766o" path="res://textures/party/balls/baguette_ball.tres" id="2_hpg27"]
+[ext_resource type="AudioStream" uid="uid://dcsthcj6psgyb" path="res://music/party-1.wav" id="2_pdwsk"]
 [ext_resource type="Script" uid="uid://dj6v7cagmy67c" path="res://scripts/party/character_ball.gd" id="2_urldw"]
 [ext_resource type="Texture2D" uid="uid://crtwx7cc7qx3l" path="res://sprites/party/finish.png" id="2_uuf7a"]
 [ext_resource type="Script" uid="uid://d36ot3mu7qqpn" path="res://scripts/party/following_camera.gd" id="3_hpg27"]
+[ext_resource type="Texture2D" uid="uid://m2n62g4yl2l1" path="res://sprites/party/Start_graphic.png" id="3_lodfw"]
 [ext_resource type="Texture2D" uid="uid://qgfcbwywm532" path="res://sprites/debug/spawner.png" id="3_uuf7a"]
 [ext_resource type="Script" uid="uid://cgneymoyma7jq" path="res://scripts/debug_only.gd" id="4_s77mu"]
+[ext_resource type="Texture2D" uid="uid://d0hk40kcs4gk7" path="res://sprites/party/finish_graphic.png" id="4_ubok0"]
 [ext_resource type="Script" uid="uid://bh5pqot3jajrv" path="res://scripts/party/moving_platform.gd" id="4_uuf7a"]
+[ext_resource type="Texture2D" uid="uid://stnw258bjcmd" path="res://sprites/party/winner_graphic.png" id="5_nxhka"]
+[ext_resource type="Texture2D" uid="uid://1y3vkg73xari" path="res://sprites/party/loser_graphic.png" id="6_k0uqs"]
+[ext_resource type="Script" uid="uid://ffbuemjv8ivh" path="res://scripts/ball_finish.gd" id="8_pdwsk"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_sc1w7"]
 panorama = ExtResource("1_m2eqm")
@@ -61,7 +68,88 @@ material = ExtResource("2_hpg27")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
 
-[node name="RollingBallMinigame" type="Node3D" unique_id=1629191205]
+[node name="RollingBallMinigame" type="Node3D" unique_id=1629191205 node_paths=PackedStringArray("fade_screen", "start_graphic", "finish_graphic", "winner_graphic", "loser_graphic", "music_player") groups=["minigame_root"]]
+script = ExtResource("1_fvrno")
+fade_screen = NodePath("FadeScreen")
+start_graphic = NodePath("StartGraphic")
+finish_graphic = NodePath("FinishGraphic")
+winner_graphic = NodePath("WinnerGraphic")
+loser_graphic = NodePath("LoserGraphic")
+music_player = NodePath("MusicPlayer")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=304125041]
+stream = ExtResource("2_pdwsk")
+
+[node name="StartGraphic" type="TextureRect" parent="." unique_id=1516229347]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -52.0
+offset_right = 180.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_lodfw")
+
+[node name="FinishGraphic" type="TextureRect" parent="." unique_id=1704722755]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.0
+offset_top = -54.0
+offset_right = 186.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+texture = ExtResource("4_ubok0")
+
+[node name="WinnerGraphic" type="TextureRect" parent="." unique_id=1516532454]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -54.0
+offset_right = 216.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+texture = ExtResource("5_nxhka")
+
+[node name="LoserGraphic" type="TextureRect" parent="." unique_id=1301546470]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -52.0
+offset_right = 280.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+texture = ExtResource("6_k0uqs")
+
+[node name="FadeScreen" type="ColorRect" parent="." unique_id=1277144533]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1420881494]
 environment = SubResource("Environment_urldw")
@@ -174,13 +262,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -2, 0)
 use_collision = true
 size = Vector3(1, 3, 1)
 
-[node name="Area3D" type="Area3D" parent="." unique_id=97966364]
+[node name="Finish" type="Area3D" parent="." unique_id=97966364]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98.67087, -12.808537, 0)
+script = ExtResource("8_pdwsk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=512419842]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Finish" unique_id=512419842]
 shape = SubResource("BoxShape3D_57qmd")
 
-[node name="Sprite3D" type="Sprite3D" parent="Area3D" unique_id=1575468473]
+[node name="Sprite3D" type="Sprite3D" parent="Finish" unique_id=1575468473]
 texture = ExtResource("2_uuf7a")
 
 [node name="MovingPlatformStart" type="Sprite3D" parent="." unique_id=2007610762]

@@ -14,6 +14,8 @@ var current_minigame_in_scene: Node
 
 @export var fake_leader: TalkerSprite
 @export var gamepad: Gamepad
+@export var animation_player: AnimationPlayer
+@export var beer: Beer
 
 func _ready() -> void:
 	var tween := create_tween()
@@ -51,7 +53,13 @@ func _load_current_minigame() -> void:
 	current_minigame_in_scene = minigame_scenes[current_minigame_index].instantiate()
 	sub_viewport.add_child(current_minigame_in_scene)
 	current_minigame_in_scene.restart.connect(_load_current_minigame)
-	current_minigame_in_scene.next_minigame.connect(_next_minigame)
+	current_minigame_in_scene.next_minigame.connect(_next_minigame_request)
 
-func _next_minigame() -> void:
-	print("Next minigame requested but I'm lazy")
+func _next_minigame_request() -> void:
+	await fake_leader.say_line("res://sound/leader-you-are-pretty-good-want-a-beer.wav", "You are pretty good at this.\nWant a beer?")
+	animation_player.play("offering")
+	await animation_player.animation_finished
+	beer.input_ray_pickable = true
+	await beer.interaction_finished
+	current_minigame_index += 1
+	_load_current_minigame()
