@@ -1,0 +1,192 @@
+[gd_scene format=4 uid="uid://btrrjfxttxii0"]
+
+[ext_resource type="Script" uid="uid://bqb7cy84c43ho" path="res://scripts/outro.gd" id="1_27hq1"]
+[ext_resource type="Material" uid="uid://b1b46mwmp4lkg" path="res://textures/psx-pack/wood_floor_1.tres" id="1_nvx42"]
+[ext_resource type="PackedScene" uid="uid://ojklfl2v8477" path="res://models/structure/psx-pack/wall_1.glb" id="2_ya6b3"]
+[ext_resource type="Texture2D" uid="uid://dfsq1i74p60hk" path="res://models/furniture/poker-table_0.png" id="3_611wi"]
+[ext_resource type="ArrayMesh" uid="uid://bf2lr2rbi1s4k" path="res://models/electronics/psx-pack/tv_mp_1_tv_mp_1.res" id="4_0b11s"]
+[ext_resource type="Texture2D" uid="uid://dyrse04m18tnq" path="res://sprites/jerma_crouching.png" id="5_7nwcv"]
+[ext_resource type="Texture2D" uid="uid://3uy8q7sq42kk" path="res://sprites/ad.png" id="6_goj31"]
+[ext_resource type="Texture2D" uid="uid://eggr8xmoi5al" path="res://sprites/happy_birthday_banner.png" id="7_0b11s"]
+[ext_resource type="Script" uid="uid://6vow31j8237n" path="res://scripts/intro/talker_sprite.gd" id="7_7nwcv"]
+[ext_resource type="Texture2D" uid="uid://bgxbicff7jehb" path="res://sprites/balloons.png" id="8_7nwcv"]
+[ext_resource type="FontFile" uid="uid://csfb1k7tw6nyq" path="res://fonts/crimsonpro/CrimsonPro-Regular.ttf" id="8_goj31"]
+[ext_resource type="Script" uid="uid://b2jogx1xy2yy0" path="res://scripts/linkable_rich_text_label.gd" id="12_p8q65"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_27hq1"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_p8q65"]
+sky_material = SubResource("ProceduralSkyMaterial_27hq1")
+
+[sub_resource type="Environment" id="Environment_eq15a"]
+background_mode = 2
+sky = SubResource("Sky_p8q65")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_r6h2c"]
+_surfaces = [{
+"aabb": AABB(-10, -1, -10, 20, 2, 20),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"material": ExtResource("1_nvx42"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AAAgwQAAgL8AACBBAAAgwQAAgL8AACDBAAAgwQAAgD8AACDBAAAgQQAAgL8AACDBAAAgwQAAgL8AACDBAAAgwQAAgL8AACBBAAAgwQAAgD8AACDBAAAgwQAAgL8AACDBAAAgQQAAgL8AACDBAAAgwQAAgD8AACDBAAAgwQAAgD8AACBBAAAgwQAAgL8AACBBAAAgwQAAgL8AACBBAAAgwQAAgD8AACBBAAAgQQAAgD8AACBBAAAgQQAAgD8AACBBAAAgwQAAgD8AACBBAAAgwQAAgD8AACDBAAAgwQAAgL8AACBBAAAgQQAAgL8AACBBAAAgQQAAgL8AACDBAAAgQQAAgD8AACBBAAAgQQAAgL8AACBBAAAgwQAAgL8AACBBAAAgQQAAgL8AACDBAAAgQQAAgL8AACBBAAAgQQAAgD8AACBBAAAgQQAAgL8AACDBAAAgQQAAgD8AACDBAAAgwQAAgD8AACDBAAAgwQAAgD8AACDBAAAgQQAAgD8AACDBAAAgQQAAgD8AACBBAAAgQQAAgD8AACBBAAAgQQAAgD8AACDBAAAgQQAAgL8AACDBAAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ya6b3"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qixtg"]
+albedo_texture = ExtResource("3_611wi")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lsp6n"]
+_surfaces = [{
+"aabb": AABB(-1.0827637, -0.2460289, -0.33642578, 2.1655273, 0.4920578, 0.67285156),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"material": SubResource("StandardMaterial3D_qixtg"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AJiKvwDve74AQKw+AJiKvwDve74AQKy+AJiKvwDvez4AQKy+AJiKPwDve74AQKy+AJiKvwDve74AQKy+AJiKvwDve74AQKw+AJiKvwDvez4AQKy+AJiKvwDve74AQKy+AJiKPwDve74AQKy+AJiKvwDvez4AQKy+AJiKvwDvez4AQKw+AJiKvwDve74AQKw+AJiKvwDve74AQKw+AJiKvwDvez4AQKw+AJiKPwDvez4AQKw+AJiKPwDvez4AQKw+AJiKvwDvez4AQKw+AJiKvwDvez4AQKy+AJiKvwDve74AQKw+AJiKPwDve74AQKw+AJiKPwDve74AQKy+AJiKPwDvez4AQKw+AJiKPwDve74AQKw+AJiKvwDve74AQKw+AJiKPwDve74AQKy+AJiKPwDve74AQKw+AJiKPwDvez4AQKw+AJiKPwDve74AQKy+AJiKPwDvez4AQKy+AJiKvwDvez4AQKy+AJiKvwDvez4AQKy+AJiKPwDvez4AQKy+AJiKPwDvez4AQKw+AJiKPwDvez4AQKw+AJiKPwDvez4AQKy+AJiKPwDve74AQKy+AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxxuk"]
+shading_mode = 0
+albedo_texture = ExtResource("6_goj31")
+
+[node name="Outro" type="Node3D" unique_id=1211083671 node_paths=PackedStringArray("jerma", "fade_in", "credits")]
+script = ExtResource("1_27hq1")
+jerma = NodePath("Jerma")
+fade_in = NodePath("FadeIn")
+credits = NodePath("Credits")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=896146766]
+transform = Transform3D(0.60042024, 0.5330158, -0.5961457, 0, 0.745476, 0.66653246, 0.79968464, -0.40019956, 0.44759887, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=950618424]
+environment = SubResource("Environment_eq15a")
+
+[node name="FadeIn" type="ColorRect" parent="." unique_id=1259373710]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="FloorInside" type="MeshInstance3D" parent="." unique_id=1478930826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013153553, -0.99999905, -0.014608383)
+mesh = SubResource("ArrayMesh_r6h2c")
+
+[node name="FloorInside2" type="MeshInstance3D" parent="." unique_id=1344726358]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0.013153553, 3.000001, -2.0146084)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_ya6b3")
+
+[node name="wall_19" parent="." unique_id=721239603 instance=ExtResource("2_ya6b3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19745684, -0.0031590462, -1.650733)
+
+[node name="wall_20" parent="." unique_id=1732407755 instance=ExtResource("2_ya6b3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.197457, -0.0031590462, -1.650733)
+
+[node name="wall_21" parent="." unique_id=2087137659 instance=ExtResource("2_ya6b3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8025432, -0.0031590462, -1.650733)
+
+[node name="TVShelf" type="MeshInstance3D" parent="." unique_id=333176470]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20871484, 0.22973728, -1.1562228)
+mesh = SubResource("ArrayMesh_lsp6n")
+
+[node name="TV" type="MeshInstance3D" parent="." unique_id=756880499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17873919, 0.39789015, -1.4661388)
+mesh = ExtResource("4_0b11s")
+surface_material_override/1 = SubResource("StandardMaterial3D_fxxuk")
+
+[node name="Jerma" type="Sprite3D" parent="." unique_id=2098645553 node_paths=PackedStringArray("audio_player_3d", "label_3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.68950397, 0.5209999, 0)
+billboard = 1
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("5_7nwcv")
+script = ExtResource("7_7nwcv")
+audio_player_3d = NodePath("AudioStreamPlayer3D")
+label_3d = NodePath("Label3D")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Jerma" unique_id=869446283]
+
+[node name="Label3D" type="Label3D" parent="Jerma" unique_id=962781172]
+transform = Transform3D(0.9999999, 0, -1.4901161e-08, 0, 1, 0, 1.4901161e-08, 0, 0.9999999, -0.19613981, 0.62921, -0.08347702)
+billboard = 1
+no_depth_test = true
+texture_filter = 0
+font = ExtResource("8_goj31")
+font_size = 20
+outline_size = 10
+horizontal_alignment = 2
+vertical_alignment = 0
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1654420580]
+transform = Transform3D(0.956006, -0.09731296, -0.27673605, 0.034005024, 0.9737765, -0.22495104, 0.29136974, 0.20564412, 0.9342452, -0.10938668, 0.319255, 0.4644568)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1235840695]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16680431, 2.3017893, -1.5256985)
+pixel_size = 0.03
+shaded = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("7_0b11s")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1342909615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7854424, 1.3017893, -1.0240053)
+pixel_size = 0.03
+billboard = 2
+shaded = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("8_7nwcv")
+
+[node name="Sprite3D3" type="Sprite3D" parent="." unique_id=78711402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4347677, 1.3017893, -1.0240053)
+pixel_size = 0.03
+billboard = 2
+shaded = true
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("8_7nwcv")
+
+[node name="Credits" type="RichTextLabel" parent="." unique_id=96335751]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 51.0
+offset_top = -136.5
+offset_right = 1081.0
+offset_bottom = 136.5
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("8_goj31")
+theme_override_font_sizes/normal_font_size = 34
+bbcode_enabled = true
+text = "[font_size=60]Invite Only[/font_size]
+Game by [url=https://detta.dev/]Punished Bernadetta[/url]
+
+Music by [url=https://snoozeds.com/]Snoozeds[/url]
+
+Super Hib Party announcer voiced by some random hobo
+
+Additional sound effects and outro VA by [url=https://x.com/xfreshcutflower]flower[/url]
+
+Thank you for playing :3
+
+[url=https://store.steampowered.com/app/4543000/Murazu_2/]Wishlist my game Murazu 2 on Steam![/url]"
+fit_content = true
+scroll_active = false
+script = ExtResource("12_p8q65")

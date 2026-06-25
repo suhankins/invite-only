@@ -12,4 +12,3 @@ func _on_click(_camera: Node) -> void:
 	input_ray_pickable = false
 	await animation_player.animation_finished
 	interaction_finished.emit()
-	gamepad.show()

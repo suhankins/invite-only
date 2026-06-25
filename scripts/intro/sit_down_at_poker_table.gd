@@ -5,6 +5,7 @@ extends MoveToAreaTrigger
 @export var leader: TalkerSprite
 @export var cards_to_flip_0: PairOfCards
 @export var cards_to_flip_1: PairOfCards
+@export var fade_in: ColorRect
 
 func _on_click(camera: Node) -> void:
     await super._on_click(camera)
@@ -19,3 +20,7 @@ func _on_click(camera: Node) -> void:
     await leader.say_line("res://sound/leader-wait-dont-give-him-cards.wav", "Wait...\nDon't give them cards.")
     await get_tree().create_timer(0.5).timeout
     await leader.say_line("res://sound/leader-hey-new-blood.wav", "Hey new blood.\nDo you want to have some real fun?")
+    var tween := create_tween()
+    tween.tween_property(fade_in, "color:a", 1.0, 2.0)
+    await tween.finished
+    get_tree().change_scene_to_file("res://scenes/gameplay.tscn")

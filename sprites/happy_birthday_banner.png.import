@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqesn50bd676o"
-path.s3tc="res://.godot/imported/hand_ticket.png-1b06d9923b6ddabd3d92686722ab85f2.s3tc.ctex"
+uid="uid://eggr8xmoi5al"
+path.s3tc="res://.godot/imported/happy_birthday_banner.png-04194e95822edeff7c5cfb64a9d77a45.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://sprites/hand_ticket.png"
-dest_files=["res://.godot/imported/hand_ticket.png-1b06d9923b6ddabd3d92686722ab85f2.s3tc.ctex"]
+source_file="res://sprites/happy_birthday_banner.png"
+dest_files=["res://.godot/imported/happy_birthday_banner.png-04194e95822edeff7c5cfb64a9d77a45.s3tc.ctex"]
 
 [params]
 

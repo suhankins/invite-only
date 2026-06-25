@@ -86,7 +86,8 @@ func _next_minigame_request() -> void:
 		(vhs_filter.material as ShaderMaterial).set_shader_parameter("chrom_aberration", 0.0)
 		(vhs_filter.material as ShaderMaterial).set_shader_parameter("vignette_strength", 1.0)
 		camera.bobbing_amplitude = 0.0005
-		print("TODO: Go to ending")
+		get_tree().change_scene_to_file("res://scenes/outro.tscn")
 	else:
+		gamepad.show()
 		current_minigame_index += 1
 		_load_current_minigame()

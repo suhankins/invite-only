@@ -594,7 +594,7 @@ debug_color = Color(0, 0.6, 0.69803923, 1)
 transform = Transform3D(0.99965733, 0.0027362395, -0.026033562, 0, 0.9945219, 0.10452854, 0.026176961, -0.104492724, 0.9941811, 2.8395712, 1.5138233, -1.2497466)
 top_level = true
 
-[node name="SitDown" type="Area3D" parent="." unique_id=43559449 node_paths=PackedStringArray("card_giver", "you_bet_guy", "leader", "cards_to_flip_0", "cards_to_flip_1", "target")]
+[node name="SitDown" type="Area3D" parent="." unique_id=43559449 node_paths=PackedStringArray("card_giver", "you_bet_guy", "leader", "cards_to_flip_0", "cards_to_flip_1", "fade_in", "target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5456371, 0, -3.7020943)
 input_ray_pickable = false
 monitoring = false
@@ -604,6 +604,7 @@ you_bet_guy = NodePath("../YouBetChair/YouBetGuy")
 leader = NodePath("../LeaderChair/Leader")
 cards_to_flip_0 = NodePath("../PairOfCards")
 cards_to_flip_1 = NodePath("../PairOfCards2")
+fade_in = NodePath("../FadeIn")
 target = NodePath("Node3D")
 
 [node name="PlayeChair" parent="SitDown" unique_id=1570652702 instance=ExtResource("27_gmop7")]
@@ -647,3 +648,12 @@ mesh = SubResource("PlaneMesh_yf5fn")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="PairOfCards2" unique_id=1571066691]
 stream = ExtResource("38_ya6sn")
+
+[node name="FadeIn" type="ColorRect" parent="." unique_id=615382723]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
