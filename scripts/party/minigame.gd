@@ -38,8 +38,8 @@ func _start_minigame() -> void:
 
 func _finish_lose() -> void:
 	await _finish_generic()
+	UiAudio.playback.play_stream(load("res://sound/party/announcer_failure.mp3"))
 	finish_graphic.hide()
-
 	loser_graphic.show()
 	loser_graphic.offset_transform_scale = Vector2(0.5, 0.5)
 	var tween := create_tween()
