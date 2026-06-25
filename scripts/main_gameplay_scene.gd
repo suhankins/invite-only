@@ -56,7 +56,12 @@ func _load_current_minigame() -> void:
 	current_minigame_in_scene.next_minigame.connect(_next_minigame_request)
 
 func _next_minigame_request() -> void:
-	await fake_leader.say_line("res://sound/leader-you-are-pretty-good-want-a-beer.wav", "You are pretty good at this.\nWant a beer?")
+	if current_minigame_index == 0:
+		await fake_leader.say_line("res://sound/leader-you-are-pretty-good-want-a-beer.wav", "You are pretty good at this.\nWant a beer?")
+	elif current_minigame_index == 1:
+		await fake_leader.say_line("res://sound/leader-another-beer.wav", "You're shredding it.\nAnother beer?")
+	else:
+		await fake_leader.say_line("res://sound/leader-up-for-another-beer.wav", "Alright, you're up for another one?")
 	animation_player.play("offering")
 	await animation_player.animation_finished
 	beer.input_ray_pickable = true
