@@ -13,6 +13,7 @@ config_version=5
 config/name="Invite Only"
 run/main_scene="uid://br2x7l8jikyq7"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/image="uid://qopqppttymey"
 config/icon="res://icon.svg"
 
 [audio]
