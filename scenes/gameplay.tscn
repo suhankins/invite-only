@@ -236,9 +236,7 @@ _data = {
 script = ExtResource("1_25e7j")
 sub_viewport = NodePath("SubViewport")
 title_screen_scene = ExtResource("2_t4x03")
-minigame_0_scene = ExtResource("3_ucu43")
-minigame_1_scene = ExtResource("4_cuhxg")
-minigame_2_scene = ExtResource("13_nt65e")
+minigame_scenes = Array[PackedScene]([ExtResource("3_ucu43"), ExtResource("4_cuhxg"), ExtResource("13_nt65e")])
 fade_in = NodePath("FadeIn")
 leader_fixing_tv = NodePath("LeaderFixingTV")
 no_signal_card = NodePath("SubViewport/NoSignalText")
@@ -418,6 +416,7 @@ audio_player_3d = NodePath("AudioStreamPlayer3D")
 label_3d = NodePath("Label3D")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="LeaderFixingTV" unique_id=750796359]
+volume_db = 10.0
 
 [node name="Label3D" type="Label3D" parent="LeaderFixingTV" unique_id=361459880]
 transform = Transform3D(0.9999999, 0, -1.4901161e-08, 0, 1, 0, 1.4901161e-08, 0, 0.9999999, 0.04279685, 0.8307513, -0.08347702)
@@ -443,3 +442,4 @@ audio_player_3d = NodePath("AudioStreamPlayer3D")
 label_3d = NodePath("../TV/Label3D")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="FakeLeader" unique_id=72113372]
+volume_db = 10.0

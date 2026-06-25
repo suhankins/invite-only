@@ -229,6 +229,7 @@ respawn_point = NodePath("../RespawnPoint")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BallDeathZone" unique_id=1771690542]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, 0)
 shape = SubResource("BoxShape3D_g4v7s")
+debug_color = Color(0.972549, 0, 0.44705883, 1)
 
 [node name="BallDeathZone2" type="Area3D" parent="." unique_id=425889776 node_paths=PackedStringArray("respawn_point", "restart_platform")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71, -15, 0)

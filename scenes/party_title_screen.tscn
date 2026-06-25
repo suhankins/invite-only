@@ -137,7 +137,7 @@ _data = {
 &"title_screen_animation": SubResource("Animation_xjl2x")
 }
 
-[node name="PartyTitleScreen" type="Control" unique_id=387831392]
+[node name="PartyTitleScreen" type="Control" unique_id=387831392 node_paths=PackedStringArray("white_screen")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -145,6 +145,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_85b2b")
+white_screen = NodePath("FadeScreen")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1052665461]
 layout_mode = 1
@@ -193,3 +194,12 @@ texture = ExtResource("5_7x2t7")
 libraries/ = SubResource("AnimationLibrary_ies8j")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2089732221]
+
+[node name="FadeScreen" type="ColorRect" parent="." unique_id=703075769]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
