@@ -2,14 +2,20 @@
 
 [ext_resource type="Texture2D" uid="uid://d0nua3e7b7glm" path="res://sprites/party/hibi.png" id="1_02iu7"]
 [ext_resource type="Texture2D" uid="uid://d2cnrue748wae" path="res://sprites/party/sky.png" id="1_4s8aw"]
+[ext_resource type="Script" uid="uid://fhe8kf61262i" path="res://scripts/party/minigame.gd" id="1_xu6w0"]
 [ext_resource type="Texture2D" uid="uid://b71uk838j0hgl" path="res://sprites/party/moon.png" id="2_sxabt"]
+[ext_resource type="AudioStream" uid="uid://d2m2glfrf6ren" path="res://music/party-3.wav" id="2_vuogk"]
 [ext_resource type="Script" uid="uid://7wrwglhr3b16" path="res://scripts/spinner.gd" id="2_xxu0p"]
+[ext_resource type="Texture2D" uid="uid://m2n62g4yl2l1" path="res://sprites/party/Start_graphic.png" id="3_0vk8b"]
 [ext_resource type="Texture2D" uid="uid://crtwx7cc7qx3l" path="res://sprites/party/finish.png" id="3_hwawf"]
 [ext_resource type="Texture2D" uid="uid://jhxaft50kje2" path="res://sprites/party/bird.png" id="3_y3pp8"]
 [ext_resource type="Texture2D" uid="uid://ys2cq3r8ovxj" path="res://sprites/party/plane.png" id="4_dkwli"]
 [ext_resource type="Script" uid="uid://chmdap8bodpdb" path="res://scripts/party/flag.gd" id="4_hwawf"]
+[ext_resource type="Texture2D" uid="uid://d0hk40kcs4gk7" path="res://sprites/party/finish_graphic.png" id="4_oupu8"]
 [ext_resource type="Texture2D" uid="uid://biliewhh6ye50" path="res://sprites/party/hot_air_balloon.png" id="4_y3pp8"]
+[ext_resource type="Texture2D" uid="uid://stnw258bjcmd" path="res://sprites/party/winner_graphic.png" id="5_fuc3l"]
 [ext_resource type="Texture2D" uid="uid://bw03bfg3y1yuy" path="res://sprites/party/satellite.png" id="6_02iu7"]
+[ext_resource type="Texture2D" uid="uid://1y3vkg73xari" path="res://sprites/party/loser_graphic.png" id="6_oi1xn"]
 [ext_resource type="Texture2D" uid="uid://u4e71rrqjkq1" path="res://sprites/party/rocket.png" id="7_xu6w0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sxabt"]
@@ -78,7 +84,88 @@ material = SubResource("StandardMaterial3D_g4v7s")
 subdivide_width = 5
 subdivide_depth = 1
 
-[node name="FlagPoleMinigame" type="Node3D" unique_id=1742279698]
+[node name="FlagPoleMinigame" type="Node3D" unique_id=1742279698 node_paths=PackedStringArray("fade_screen", "start_graphic", "finish_graphic", "winner_graphic", "loser_graphic", "music_player") groups=["minigame_root"]]
+script = ExtResource("1_xu6w0")
+fade_screen = NodePath("FadeScreen")
+start_graphic = NodePath("StartGraphic")
+finish_graphic = NodePath("FinishGraphic")
+winner_graphic = NodePath("WinnerGraphic")
+loser_graphic = NodePath("LoserGraphic")
+music_player = NodePath("MusicPlayer")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1676811673]
+stream = ExtResource("2_vuogk")
+
+[node name="StartGraphic" type="TextureRect" parent="." unique_id=1765431956]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -52.0
+offset_right = 180.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_0vk8b")
+
+[node name="FinishGraphic" type="TextureRect" parent="." unique_id=745577127]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.0
+offset_top = -54.0
+offset_right = 186.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+texture = ExtResource("4_oupu8")
+
+[node name="WinnerGraphic" type="TextureRect" parent="." unique_id=1875188498]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -54.0
+offset_right = 216.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+texture = ExtResource("5_fuc3l")
+
+[node name="LoserGraphic" type="TextureRect" parent="." unique_id=1841482191]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -52.0
+offset_right = 280.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+texture = ExtResource("6_oi1xn")
+
+[node name="FadeScreen" type="ColorRect" parent="." unique_id=946097580]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1372114408]
 environment = SubResource("Environment_rn42k")
