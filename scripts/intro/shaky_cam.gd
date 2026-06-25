@@ -1,3 +1,4 @@
+class_name ShakyCamera
 extends Camera3D
 
 @export var bobbing_curve: Curve

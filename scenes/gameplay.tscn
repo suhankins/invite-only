@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://b5d6ymwoa25ld" path="res://sound/drinking_beer.wav" id="15_s5y6v"]
 [ext_resource type="Texture2D" uid="uid://bb0r28fdtibg3" path="res://sprites/leader-plugging-in.png" id="18_vrqbj"]
 [ext_resource type="Script" uid="uid://dx1t1shbxw4vx" path="res://scripts/beer.gd" id="22_t4x03"]
+[ext_resource type="AudioStream" uid="uid://jjqncqvwwin2" path="res://sound/fall.wav" id="24_ucu43"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_101mb"]
 panorama = ExtResource("1_e124b")
@@ -146,6 +147,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.389, 0.875, -5.3292885)]
+}
 
 [sub_resource type="Animation" id="Animation_w3w6i"]
 resource_name = "drinking"
@@ -229,19 +242,65 @@ tracks/1/keys = {
 "values": [Vector3(0.94811934, 0.06259248, -5.8059735), Vector3(0.94811934, 0.6182084, -5.8059735)]
 }
 
+[sub_resource type="Animation" id="Animation_cuhxg"]
+resource_name = "pass_out"
+length = 1.5666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.5358867),
+"update": 0,
+"values": [Vector3(1.389, 0.875, -5.3292885), Vector3(1.6592858, 0.2735498, -5.3292885)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.57434916),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.22165681, 0, -1.3089969)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFXInOurHead")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("24_ucu43")
+}],
+"times": PackedFloat32Array(0.73333335)
+}
+tracks/2/use_blend = true
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w3w6i"]
 _data = {
 &"RESET": SubResource("Animation_407ns"),
 &"drinking": SubResource("Animation_w3w6i"),
-&"offering": SubResource("Animation_pv71h")
+&"offering": SubResource("Animation_pv71h"),
+&"pass_out": SubResource("Animation_cuhxg")
 }
 
-[node name="Gameplay" type="Node3D" unique_id=130764812 node_paths=PackedStringArray("sub_viewport", "fade_in", "leader_fixing_tv", "no_signal_card", "fake_leader", "gamepad", "animation_player", "beer")]
+[node name="Gameplay" type="Node3D" unique_id=130764812 node_paths=PackedStringArray("sub_viewport", "fade_in", "vhs_filter", "camera", "leader_fixing_tv", "no_signal_card", "fake_leader", "gamepad", "animation_player", "beer")]
 script = ExtResource("1_25e7j")
 sub_viewport = NodePath("SubViewport")
 title_screen_scene = ExtResource("2_t4x03")
 minigame_scenes = Array[PackedScene]([ExtResource("4_cuhxg"), ExtResource("3_ucu43"), ExtResource("13_nt65e")])
 fade_in = NodePath("FadeIn")
+vhs_filter = NodePath("VHSFilter")
+camera = NodePath("Camera3D")
 leader_fixing_tv = NodePath("LeaderFixingTV")
 no_signal_card = NodePath("SubViewport/NoSignalText")
 fake_leader = NodePath("FakeLeader")
@@ -257,18 +316,7 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1803909125]
 environment = SubResource("Environment_hbo4f")
 
-[node name="VHSFilter" type="ColorRect" parent="." unique_id=1740203807]
-texture_filter = 1
-material = SubResource("ShaderMaterial_qixtg")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
 [node name="Gamepad" type="TextureRect" parent="." unique_id=10052216 node_paths=PackedStringArray("joystick", "a_button") groups=["Gamepad"]]
-visible = false
 texture_filter = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -334,7 +382,18 @@ action_mode = 0
 flat = true
 script = ExtResource("6_nt65e")
 
+[node name="VHSFilter" type="ColorRect" parent="." unique_id=1740203807]
+texture_filter = 1
+material = SubResource("ShaderMaterial_qixtg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
 [node name="FadeIn" type="ColorRect" parent="." unique_id=1198701111]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

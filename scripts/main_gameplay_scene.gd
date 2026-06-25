@@ -8,6 +8,8 @@ var current_minigame_index: int = 0
 var current_minigame_in_scene: Node
 
 @export var fade_in: ColorRect
+@export var vhs_filter: ColorRect
+@export var camera: ShakyCamera
 
 @export var leader_fixing_tv: TalkerSprite
 @export var no_signal_card: Control
@@ -18,6 +20,8 @@ var current_minigame_in_scene: Node
 @export var beer: Beer
 
 func _ready() -> void:
+	fade_in.show()
+	gamepad.hide()
 	var tween := create_tween()
 	tween.tween_property(fade_in, "color:a", 0.0, 1.0)
 	await tween.finished
@@ -66,5 +70,18 @@ func _next_minigame_request() -> void:
 	await animation_player.animation_finished
 	beer.input_ray_pickable = true
 	await beer.interaction_finished
-	current_minigame_index += 1
-	_load_current_minigame()
+	var tween := create_tween()
+	tween.tween_property(AudioServer.get_bus_effect(0,0), "wet", (current_minigame_index + 1) * 0.1, 1.0)
+	(vhs_filter.material as ShaderMaterial).set_shader_parameter("chrom_aberration", (current_minigame_index + 1) * 0.1)
+	(vhs_filter.material as ShaderMaterial).set_shader_parameter("vignette_strength", (current_minigame_index + 2))
+	camera.bobbing_amplitude *= 1.5
+	if current_minigame_index == 2:
+		animation_player.play("pass_out")
+		await animation_player.animation_finished
+		tween = create_tween()
+		tween.tween_property(fade_in, "color:a", 1.0, 1.0)
+		await tween.finished
+		print("TODO: Change scene")
+	else:
+		current_minigame_index += 1
+		_load_current_minigame()
