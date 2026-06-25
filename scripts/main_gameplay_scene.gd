@@ -76,12 +76,17 @@ func _next_minigame_request() -> void:
 	(vhs_filter.material as ShaderMaterial).set_shader_parameter("vignette_strength", (current_minigame_index + 2))
 	camera.bobbing_amplitude *= 1.5
 	if current_minigame_index == 2:
+		gamepad.hide()
 		animation_player.play("pass_out")
 		await animation_player.animation_finished
 		tween = create_tween()
 		tween.tween_property(fade_in, "color:a", 1.0, 1.0)
 		await tween.finished
-		print("TODO: Change scene")
+		AudioServer.get_bus_effect(0,0).wet = 0.0
+		(vhs_filter.material as ShaderMaterial).set_shader_parameter("chrom_aberration", 0.0)
+		(vhs_filter.material as ShaderMaterial).set_shader_parameter("vignette_strength", 1.0)
+		camera.bobbing_amplitude = 0.0005
+		print("TODO: Go to ending")
 	else:
 		current_minigame_index += 1
 		_load_current_minigame()
