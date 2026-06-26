@@ -32,5 +32,7 @@ Assets
 * Crimson Pro font - The Crimson Pro Project Authors under OFL
 * Cherry Bomb One - The Cherry Bomb Project Authors under OFL
 * Jerma crouching - https://www.youtube.com/watch?v=IFNZrRSBNSw
+* Truck - from my game Murazu 2 https://store.steampowered.com/app/4543000/Murazu_2/
+* Car interior - https://www.reddit.com/r/80sCarInteriors/
 
 Shout outs to https://valsekamerplant.itch.io/texture-retrofier

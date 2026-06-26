@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cgs8g2xpoimyt"]
+
+[ext_resource type="Texture2D" uid="uid://dupt7rtphl07u" path="res://textures/Gravel043_1K-PNG_Color.png" id="1_rp8ng"]
+[ext_resource type="Texture2D" uid="uid://bkh16mlrj6epf" path="res://textures/Gravel043_1K-PNG_NormalGL.png" id="2_6xv5c"]
+
+[resource]
+albedo_color = Color(0.45452422, 0.45452428, 0.45452422, 1)
+albedo_texture = ExtResource("1_rp8ng")
+normal_enabled = true
+normal_texture = ExtResource("2_6xv5c")
+uv1_scale = Vector3(10, 10, 10)
+texture_filter = 0
