@@ -20,6 +20,7 @@ Fun stories about some assets:
 * Poker table texture is my towel hue shifted towards green
 * Names of playable characters are Baguette (Teto plushie), Gerald (Blahaj), and Hibi (plushie with a yellow hibiscus)
 * For poker players I asked my roommate to sit like he's at a poker table and then traced him
+* Car is literally just doors, front panel, and roof
 
 Assets
 * Exterior, chairs, wooden floor - PSX Mega Pack by Pizzadoggy
