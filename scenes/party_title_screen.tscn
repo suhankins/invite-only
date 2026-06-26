@@ -194,6 +194,7 @@ texture = ExtResource("5_7x2t7")
 libraries/ = SubResource("AnimationLibrary_ies8j")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2089732221]
+volume_db = -10.0
 
 [node name="FadeScreen" type="ColorRect" parent="." unique_id=703075769]
 layout_mode = 1

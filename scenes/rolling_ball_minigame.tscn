@@ -79,6 +79,7 @@ music_player = NodePath("MusicPlayer")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=304125041]
 stream = ExtResource("2_pdwsk")
+volume_db = -10.0
 
 [node name="StartGraphic" type="TextureRect" parent="." unique_id=1516229347]
 visible = false
