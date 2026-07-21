@@ -1,6 +1,14 @@
 # Invite Only
 
-Very serious game for The Very Serious Juniper Dev Game Jam.
+Very serious game for The Very Serious Juniper Dev Game Jam, made in one week.
+
+> **Have you ever gamed at a party with your life on the line?**
+>
+> You are invited to an exclusive party hosted by some shady figures. You don't know anyone, but they clearly know you.
+>
+> I hope you are ready to game like your life depends on it. You wouldn't want to disappoint The Boss, right?
+
+![Screenshot of the game, showing poker table surrounded by shadowy figures. Figure in the middle says "Hey new blood. Do you want to have some real fun?"](github/screenshot.png)
 
 > [!IMPORTANT]  
 > This repo does not include PSX Mega Pack assets used in the game, because posting them here would be piracy.
