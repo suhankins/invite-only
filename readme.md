@@ -16,21 +16,24 @@ Very serious game for The Very Serious Juniper Dev Game Jam, made in one week.
 ## Credits
 
 Developer
-* Punished Bernadetta
+* [Punished Bernadetta](https://detta.dev/)
 
 Music (OST available at https://on.soundcloud.com/xxRoRLqegxl5GwDD4D)
-* Snoozeds
+* [Snoozeds](https://snoozeds.com/)
+
+Super Hib Party announcer VA
+* [Crumb](https://bsky.app/profile/crumb101.bsky.social)
 
 Additional sound effects and outro VA
-* flower
+* [flower](https://x.com/xfreshcutflower)
 
-Fun stories about some assets:
+## Fun stories about some assets
 * Poker table texture is my towel hue shifted towards green
 * Names of playable characters are Baguette (Teto plushie), Gerald (Blahaj), and Hibi (plushie with a yellow hibiscus)
 * For poker players I asked my roommate to sit like he's at a poker table and then traced him
 * Car is literally just doors, front panel, and roof
 
-Assets
+## List of 3rd party assets
 * Exterior, chairs, wooden floor - PSX Mega Pack by Pizzadoggy
 * Boombox texture - Stephen Michael Barnett under Creative Commons Attribution 2.0 Generic license (compressed and PSX-ified)
 * Madcatz Nintendo 64 Controller - https://www.virtualvideogamestore.com/store/p3141/Madcatz_Nintendo_64_Controller.html, Mad Catz logo replaced with BADASS FOXEZ
@@ -41,7 +44,6 @@ Assets
 * Crimson Pro font - The Crimson Pro Project Authors under OFL
 * Cherry Bomb One - The Cherry Bomb Project Authors under OFL
 * Jerma crouching - https://www.youtube.com/watch?v=IFNZrRSBNSw
-* Truck - from my game Murazu 2 https://store.steampowered.com/app/4543000/Murazu_2/
 * Car interior - https://www.reddit.com/r/80sCarInteriors/
 
 Shout outs to https://valsekamerplant.itch.io/texture-retrofier
