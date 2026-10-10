@@ -1,6 +1,6 @@
 # Invite Only
 
-Very serious game for The Very Serious Juniper Dev Game Jam, made in one week.
+Atmospheric point and click adventure made in a week for The Very Serious Juniper Dev Game Jam. With full voice acting and an original soundtrack by my friend Snoozeds!
 
 > **Have you ever gamed at a party with your life on the line?**
 >
@@ -27,11 +27,14 @@ Super Hib Party announcer VA
 Additional sound effects and outro VA
 * [flower](https://x.com/xfreshcutflower)
 
-## Fun stories about some assets
+## Development facts!
 * Poker table texture is my towel hue shifted towards green
 * Names of playable characters are Baguette (Teto plushie), Gerald (Blahaj), and Hibi (plushie with a yellow hibiscus)
 * For poker players I asked my roommate to sit like he's at a poker table and then traced him
 * Car is literally just doors, front panel, and roof
+* For the "beer drinking" sound effect I actually just sat really close to the microphone while drinking out of soda can
+* Car was a VERY late addition so that area is a bit buggy and laggy...
+* Originally there was supposed to be an sequence where the game would be paused because Leader got a call - something about a rat! Your heart is pounding, you are terrified of what might happen to you, and then he comes back and says "Yeah, wife found a rat in the apartment. That's what I get for living in NYC".
 
 ## List of 3rd party assets
 * Exterior, chairs, wooden floor - PSX Mega Pack by Pizzadoggy
