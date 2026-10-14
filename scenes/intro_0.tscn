@@ -626,12 +626,13 @@ mouse_filter = 2
 [node name="CameraTarget1" type="Node3D" parent="." unique_id=761904177]
 transform = Transform3D(0.6788007, 0.012815699, 0.7342107, 0, 0.9998477, -0.01745241, -0.73432255, 0.011846707, 0.67869735, 5.3091817, 1.2252344, 3.0766797)
 
-[node name="Area3D" type="Area3D" parent="CameraTarget1" unique_id=618517077 node_paths=PackedStringArray("target")]
+[node name="StartingArea" type="Area3D" parent="CameraTarget1" unique_id=618517077 node_paths=PackedStringArray("target", "make_ray_pickable")]
 script = ExtResource("16_tin4v")
 target = NodePath("..")
+make_ray_pickable = [NodePath("../../GoToDoor")]
 time_to_target = 3.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraTarget1/Area3D" unique_id=503736100]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraTarget1/StartingArea" unique_id=503736100]
 transform = Transform3D(1, 1.8626451e-09, 2.9802322e-08, 0, 1, -9.313226e-10, 0, 2.1234155e-07, 1, -0.652709, 0.21850634, -1.9073486e-06)
 shape = SubResource("BoxShape3D_3gngh")
 
@@ -730,6 +731,7 @@ stretch_mode = 4
 
 [node name="GoToDoor" type="Area3D" parent="." unique_id=1125544225 node_paths=PackedStringArray("target", "make_ray_pickable")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0438778, 0, 0)
+input_ray_pickable = false
 monitoring = false
 script = ExtResource("16_tin4v")
 target = NodePath("Node3D")
@@ -945,6 +947,16 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13.5
 
 [node name="Car" parent="." unique_id=1496433644 instance=ExtResource("40_1at58")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.1957226, 0, 14.609678)
+
+[node name="Label3D" type="Label3D" parent="Car/root/LeftDoor2/LeftDoor" parent_id_path=PackedInt32Array(1496433644, 188850239) index="0" unique_id=1075928694]
+transform = Transform3D(-0.7541411, 0, -0.6567123, 0, 1, 0, 0.6567123, 0, -0.7541411, 0.9350939, 1.0376208, 0.7693176)
+double_sided = false
+no_depth_test = true
+texture_filter = 0
+text = "Is it time to go?"
+font = ExtResource("16_udagl")
+font_size = 22
+outline_size = 5
 
 [node name="ExitDoor" type="Area3D" parent="Car" unique_id=1043417836 node_paths=PackedStringArray("door", "target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1592035, 0.44545007, 0)
